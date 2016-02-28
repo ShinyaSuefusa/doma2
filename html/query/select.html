@@ -1,0 +1,749 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>検索 &mdash; Doma 2.0 ドキュメント</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Doma 2.0 ドキュメント" href="../index.html"/>
+        <link rel="up" title="クエリ" href="index.html"/>
+        <link rel="next" title="挿入" href="insert.html"/>
+        <link rel="prev" title="クエリ" href="index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Doma
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting-started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../config.html">設定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic.html">基本型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../domain.html">ドメインクラス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../entity.html">エンティティクラス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dao.html">Daoインタフェース</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">クエリ</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="">検索</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id3">問い合わせ条件</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id4">基本型やドメインクラスを使った問い合わせ</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">任意の型を使った問い合わせ</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#iterablein">Iterableを使ったIN句へのマッピング</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">1件検索</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">複数件検索</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id8">ストリーム検索</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#function">Functionへ渡す方法</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id9">戻り値で返す方法</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id10">コレクト検索</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id11">検索オプションを利用した検索</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id12">ページング</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id13">悲観的排他制御</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id14">集計</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id15">検索結果の保証</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id16">検索結果のマッピングの保証</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id17">クエリタイムアウト</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id18">フェッチサイズ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id19">最大行数</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id20">マップのキーのネーミング規約</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sql">SQL のログ出力形式</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="insert.html">挿入</a></li>
+<li class="toctree-l2"><a class="reference internal" href="update.html">更新</a></li>
+<li class="toctree-l2"><a class="reference internal" href="delete.html">削除</a></li>
+<li class="toctree-l2"><a class="reference internal" href="batch-insert.html">バッチ挿入</a></li>
+<li class="toctree-l2"><a class="reference internal" href="batch-update.html">バッチ更新</a></li>
+<li class="toctree-l2"><a class="reference internal" href="batch-delete.html">バッチ削除</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function.html">ストアドファンクション</a></li>
+<li class="toctree-l2"><a class="reference internal" href="procedure.html">ストアドプロシージャー</a></li>
+<li class="toctree-l2"><a class="reference internal" href="factory.html">ファクトリ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="script.html">スクリプト</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../query-builder/index.html">クエリビルダ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sql.html">SQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../expression.html">式言語</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../transaction.html">トランザクション</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../annotation-processing.html">注釈処理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../build.html">ビルド</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../development.html">Doma の開発</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../integration-test.html">統合テスト</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../release-notes.html">リリースノート</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Doma 2 における主要な変更点</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Doma</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="index.html">クエリ</a> &raquo;</li>
+      
+    <li>検索</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/query/select.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1><a class="toc-backref" href="#id21">検索</a><a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="contents topic" id="id2">
+<p class="topic-title first">目次</p>
+<ul class="simple">
+<li><a class="reference internal" href="#id1" id="id21">検索</a><ul>
+<li><a class="reference internal" href="#id3" id="id22">問い合わせ条件</a><ul>
+<li><a class="reference internal" href="#id4" id="id23">基本型やドメインクラスを使った問い合わせ</a></li>
+<li><a class="reference internal" href="#id5" id="id24">任意の型を使った問い合わせ</a></li>
+<li><a class="reference internal" href="#iterablein" id="id25">Iterableを使ったIN句へのマッピング</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id6" id="id26">1件検索</a></li>
+<li><a class="reference internal" href="#id7" id="id27">複数件検索</a></li>
+<li><a class="reference internal" href="#id8" id="id28">ストリーム検索</a><ul>
+<li><a class="reference internal" href="#function" id="id29">Functionへ渡す方法</a></li>
+<li><a class="reference internal" href="#id9" id="id30">戻り値で返す方法</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id10" id="id31">コレクト検索</a></li>
+<li><a class="reference internal" href="#id11" id="id32">検索オプションを利用した検索</a><ul>
+<li><a class="reference internal" href="#id12" id="id33">ページング</a></li>
+<li><a class="reference internal" href="#id13" id="id34">悲観的排他制御</a></li>
+<li><a class="reference internal" href="#id14" id="id35">集計</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id15" id="id36">検索結果の保証</a></li>
+<li><a class="reference internal" href="#id16" id="id37">検索結果のマッピングの保証</a></li>
+<li><a class="reference internal" href="#id17" id="id38">クエリタイムアウト</a></li>
+<li><a class="reference internal" href="#id18" id="id39">フェッチサイズ</a></li>
+<li><a class="reference internal" href="#id19" id="id40">最大行数</a></li>
+<li><a class="reference internal" href="#id20" id="id41">マップのキーのネーミング規約</a></li>
+<li><a class="reference internal" href="#sql" id="id42">SQL のログ出力形式</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<p>検索を行うには、 <code class="docutils literal"><span class="pre">&#64;Select</span></code> をDaoのメソッドに注釈します。</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="nd">@Config</span><span class="o">(</span><span class="n">config</span> <span class="o">=</span> <span class="n">AppConfig</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">interface</span> <span class="nc">EmployeeDao</span> <span class="o">{</span>
+    <span class="nd">@Select</span>
+    <span class="n">List</span><span class="o">&lt;</span><span class="n">Employee</span><span class="o">&gt;</span> <span class="nf">selectByDepartmentName</span><span class="o">(</span><span class="n">String</span> <span class="n">departmentName</span><span class="o">);</span>
+    <span class="o">...</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>検索では、 <strong>SQLファイルが必須</strong> です。
+検索系のSQLを自動生成する機能はありません。</p>
+<div class="admonition note">
+<p class="first admonition-title">注釈</p>
+<p class="last">エンティティクラスを利用する場合、エンティティクラスは <strong>検索結果に応じて</strong> 作成する必要があります。
+たとえば、EMPLOYEEテーブルに対応するEmployeeエンティティクラスが定義されている場合、
+EMPLOYEEテーブルのカラムを含む結果セットはEmployeeエンティティクラスで受けられますが、
+EMPLOYEEテーブルとDEPARTMENTテーブルを結合して得られる結果セットに対しては、
+Employeeエンティティクラスとは別のクラス（たとえばEmployeeDepartmentクラス）が必要です。</p>
+</div>
+<div class="section" id="id3">
+<h2><a class="toc-backref" href="#id22">問い合わせ条件</a><a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>問い合わせ条件にはメソッドのパラメータを使用します。
+利用できるパラメータの型は以下のものです。</p>
+<ul class="simple">
+<li><a class="reference internal" href="../basic.html"><em>基本型</em></a></li>
+<li><a class="reference internal" href="../domain.html"><em>ドメインクラス</em></a></li>
+<li>任意の型</li>
+<li><a class="reference internal" href="../basic.html"><em>基本型</em></a> や <a class="reference internal" href="../domain.html"><em>ドメインクラス</em></a> や任意の型を要素とするjava.util.Optional</li>
+<li><a class="reference internal" href="../basic.html"><em>基本型</em></a> や <a class="reference internal" href="../domain.html"><em>ドメインクラス</em></a> を要素とするjava.util.Iterable</li>
+<li>java.util.OptionalInt</li>
+<li>java.util.OptionalLong</li>
+<li>java.util.OptionalDouble</li>
+</ul>
+<p>パラメータの数に制限はありません。
+パラメータの型が <a class="reference internal" href="../basic.html"><em>基本型</em></a> もしくは <a class="reference internal" href="../domain.html"><em>ドメインクラス</em></a> の場合、引数を <code class="docutils literal"><span class="pre">null</span></code> にできます。
+それ以外の型の場合、引数は <code class="docutils literal"><span class="pre">null</span></code> であってはいけません。</p>
+<div class="section" id="id4">
+<h3><a class="toc-backref" href="#id23">基本型やドメインクラスを使った問い合わせ</a><a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>メソッドやパラメータに <a class="reference internal" href="../basic.html"><em>基本型</em></a> や <a class="reference internal" href="../domain.html"><em>ドメインクラス</em></a> を定義します。</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="nd">@Select</span>
+<span class="n">List</span><span class="o">&lt;</span><span class="n">Employee</span><span class="o">&gt;</span> <span class="nf">selectByNameAndSalary</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">,</span> <span class="n">Salary</span> <span class="n">salary</span><span class="o">);</span>
+</pre></div>
+</div>
+<p>SQLファイルではSQLコメントを使いメソッドのパラメータをSQLにマッピングさせます。
+SQLコメントではメソッドのパラメータ名を参照します。</p>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">employee</span> <span class="k">where</span> <span class="n">employee_name</span> <span class="o">=</span> <span class="cm">/* name */</span><span class="s1">&#39;hoge&#39;</span> <span class="k">and</span> <span class="n">salary</span> <span class="o">&gt;</span> <span class="cm">/* salary */</span><span class="mi">100</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id5">
+<h3><a class="toc-backref" href="#id24">任意の型を使った問い合わせ</a><a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>メソッドのパラメータに任意の型を使用する場合は、ドット <code class="docutils literal"><span class="pre">.</span></code>
+でフィールドにアクセスしたりメソッドを呼び出すなどしてSQLにマッピングさせます。</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="nd">@Select</span>
+<span class="n">List</span><span class="o">&lt;</span><span class="n">Employee</span><span class="o">&gt;</span> <span class="nf">selectByExample</span><span class="o">(</span><span class="n">Employee</span> <span class="n">employee</span><span class="o">);</span>
+</pre></div>
+</div>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">employee</span> <span class="k">where</span> <span class="n">employee_name</span> <span class="o">=</span> <span class="cm">/* employee.name */</span><span class="s1">&#39;hoge&#39;</span> <span class="k">and</span> <span class="n">salary</span> <span class="o">&gt;</span> <span class="cm">/* employee.getSalary() */</span><span class="mi">100</span>
+</pre></div>
+</div>
+<p>パラメータは複数指定できます。</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="nd">@Select</span>
+<span class="n">List</span><span class="o">&lt;</span><span class="n">Employee</span><span class="o">&gt;</span> <span class="nf">selectByEmployeeAndDepartment</span><span class="o">(</span><span class="n">Employee</span> <span class="n">employee</span><span class="o">,</span> <span class="n">Department</span> <span class="n">department</span><span class="o">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="iterablein">
+<h3><a class="toc-backref" href="#id25">Iterableを使ったIN句へのマッピング</a><a class="headerlink" href="#iterablein" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p><code class="docutils literal"><span class="pre">java.lang.Iterable</span></code> のサブタイプは、 IN句を利用した検索を行う場合に使用します。</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="nd">@Select</span>
+<span class="n">List</span><span class="o">&lt;</span><span class="n">Employee</span><span class="o">&gt;</span> <span class="nf">selectByNames</span><span class="o">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">names</span><span class="o">);</span>
+</pre></div>
+</div>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">employee</span> <span class="k">where</span> <span class="n">employee_name</span> <span class="k">in</span> <span class="cm">/* names */</span><span class="p">(</span><span class="s1">&#39;aaa&#39;</span><span class="p">,</span><span class="s1">&#39;bbb&#39;</span><span class="p">,</span><span class="s1">&#39;ccc&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id6">
+<h2><a class="toc-backref" href="#id26">1件検索</a><a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>1件を検索するには、メソッドの戻り値の型を次のいずれかにします。</p>
+<ul class="simple">
+<li><a class="reference internal" href="../basic.html"><em>基本型</em></a></li>
+<li><a class="reference internal" href="../domain.html"><em>ドメインクラス</em></a></li>
+<li><a class="reference internal" href="../entity.html"><em>エンティティクラス</em></a></li>
+<li>java.util.Map&lt;String, Object&gt;</li>
+<li><a class="reference internal" href="../basic.html"><em>基本型</em></a> 、 <a class="reference internal" href="../domain.html"><em>ドメインクラス</em></a> 、 <a class="reference internal" href="../entity.html"><em>エンティティクラス</em></a> 、 java.util.Map&lt;String, Object&gt;
+のいずれかを要素とするjava.util.Optional</li>
+<li>java.util.OptionalInt</li>
+<li>java.util.OptionalLong</li>
+<li>java.util.OptionalDouble</li>
+</ul>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="nd">@Select</span>
+<span class="n">Employee</span> <span class="nf">selectByNameAndSalary</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">,</span> <span class="n">BigDecimal</span> <span class="n">salary</span><span class="o">);</span>
+</pre></div>
+</div>
+<p>戻り値の型が <code class="docutils literal"><span class="pre">Optional</span></code> でなく、かつ、結果が0件のときは <code class="docutils literal"><span class="pre">null</span></code> が返されます。
+<a class="reference internal" href="#id15">検索結果の保証</a> を有効にした場合は、戻り値の型に関係なく結果が0件ならば例外がスローされます。</p>
+<p>結果が2件以上存在するときは、 <code class="docutils literal"><span class="pre">NonUniqueResultException</span></code> がスローされます。</p>
+</div>
+<div class="section" id="id7">
+<h2><a class="toc-backref" href="#id27">複数件検索</a><a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>複数件を検索するには、メソッドの戻り値の型を <code class="docutils literal"><span class="pre">java.util.List</span></code> にします。
+<code class="docutils literal"><span class="pre">List</span></code> の要素の型には次のものが使用できます。</p>
+<ul class="simple">
+<li><a class="reference internal" href="../basic.html"><em>基本型</em></a></li>
+<li><a class="reference internal" href="../domain.html"><em>ドメインクラス</em></a></li>
+<li><a class="reference internal" href="../entity.html"><em>エンティティクラス</em></a></li>
+<li>java.util.Map&lt;String, Object&gt;</li>
+<li><a class="reference internal" href="../basic.html"><em>基本型</em></a> もしくは <a class="reference internal" href="../domain.html"><em>ドメインクラス</em></a> のいずれかを要素とするjava.util.Optional</li>
+<li>java.util.OptionalInt</li>
+<li>java.util.OptionalLong</li>
+<li>java.util.OptionalDouble</li>
+</ul>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="nd">@Select</span>
+<span class="n">List</span><span class="o">&lt;</span><span class="n">Employee</span><span class="o">&gt;</span> <span class="nf">selectByNameAndSalary</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">,</span> <span class="n">Salary</span> <span class="n">salary</span><span class="o">);</span>
+</pre></div>
+</div>
+<p>結果が0件のときは <code class="docutils literal"><span class="pre">null</span></code> ではなく空のListが返されます。
+ただし、 <a class="reference internal" href="#id15">検索結果の保証</a> を有効にした場合、結果が0件ならば例外がスローされます。</p>
+</div>
+<div class="section" id="id8">
+<h2><a class="toc-backref" href="#id28">ストリーム検索</a><a class="headerlink" href="#id8" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>全件を一度に <code class="docutils literal"><span class="pre">java.util.List</span></code> で受け取るのではなく <code class="docutils literal"><span class="pre">java.util.stream.Stream</span></code> で扱いたい場合は、ストリーム検索を利用できます。</p>
+<p>ストリーム検索には、 <code class="docutils literal"><span class="pre">Stream</span></code> を <code class="docutils literal"><span class="pre">java.util.Function</span></code> へ渡す方法と戻り値で返す方法の2種類があります。</p>
+<div class="section" id="function">
+<h3><a class="toc-backref" href="#id29">Functionへ渡す方法</a><a class="headerlink" href="#function" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p><code class="docutils literal"><span class="pre">&#64;Select</span></code> の <code class="docutils literal"><span class="pre">strategy</span></code> 要素に <code class="docutils literal"><span class="pre">SelectType.STREAM</span></code> を設定し、
+メソッドのパラメータに <code class="docutils literal"><span class="pre">java.util.Function&lt;Stream&lt;TARGET&gt;,</span> <span class="pre">RESULT&gt;</span></code> もしくは
+<code class="docutils literal"><span class="pre">java.util.Function&lt;Stream&lt;TARGET&gt;,</span> <span class="pre">RESULT&gt;</span></code> のサブタイプを定義します。</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="nd">@Select</span><span class="o">(</span><span class="n">strategy</span> <span class="o">=</span> <span class="n">SelectType</span><span class="o">.</span><span class="na">STREAM</span><span class="o">)</span>
+<span class="n">BigDecimal</span> <span class="nf">selectByNameAndSalary</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">,</span> <span class="n">BigDecimal</span> <span class="n">salary</span><span class="o">,</span> <span class="n">Function</span><span class="o">&lt;</span><span class="n">Stream</span><span class="o">&lt;</span><span class="n">Employee</span><span class="o">&gt;,</span> <span class="n">BigDecimal</span><span class="o">&gt;</span> <span class="n">mapper</span><span class="o">);</span>
+</pre></div>
+</div>
+<p>呼び出し元はストリームを受け取って結果を返すラムダ式を渡します。</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="n">EmployeeDao</span> <span class="n">dao</span> <span class="o">=</span> <span class="k">new</span> <span class="n">EmployeeDaoImpl</span><span class="o">();</span>
+<span class="n">BigDecimal</span> <span class="n">result</span> <span class="o">=</span> <span class="n">dao</span><span class="o">.</span><span class="na">selectByNameAndSalary</span><span class="o">(</span><span class="n">name</span><span class="o">,</span> <span class="n">salary</span><span class="o">,</span> <span class="n">stream</span> <span class="o">-&gt;</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="o">...;</span>
+<span class="o">});</span>
+</pre></div>
+</div>
+<p><code class="docutils literal"><span class="pre">Function&lt;Stream&lt;TARGET&gt;,</span> <span class="pre">RESULT&gt;</span></code> の型パラメータ <code class="docutils literal"><span class="pre">TARGET</span></code> は次のいずれかでなければいけません。</p>
+<ul class="simple">
+<li><a class="reference internal" href="../basic.html"><em>基本型</em></a></li>
+<li><a class="reference internal" href="../domain.html"><em>ドメインクラス</em></a></li>
+<li><a class="reference internal" href="../entity.html"><em>エンティティクラス</em></a></li>
+<li>java.util.Map&lt;String, Object&gt;</li>
+<li><a class="reference internal" href="../basic.html"><em>基本型</em></a> もしくは <a class="reference internal" href="../domain.html"><em>ドメインクラス</em></a> のいずれかを要素とするjava.util.Optional</li>
+<li>java.util.OptionalInt</li>
+<li>java.util.OptionalLong</li>
+<li>java.util.OptionalDouble</li>
+</ul>
+<p>型パラメータ <code class="docutils literal"><span class="pre">RESULT</span></code> はDaoのメソッドの戻り値に合わせなければいけません。</p>
+<p><a class="reference internal" href="#id15">検索結果の保証</a> を有効にした場合、結果が0件ならば例外がスローされます。</p>
+</div>
+<div class="section" id="id9">
+<h3><a class="toc-backref" href="#id30">戻り値で返す方法</a><a class="headerlink" href="#id9" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>メソッドの戻り値の型を <code class="docutils literal"><span class="pre">java.util.stream.Stream</span></code> にします。
+<code class="docutils literal"><span class="pre">Stream</span></code> の要素の型には次のものが使用できます。</p>
+<ul class="simple">
+<li><a class="reference internal" href="../basic.html"><em>基本型</em></a></li>
+<li><a class="reference internal" href="../domain.html"><em>ドメインクラス</em></a></li>
+<li><a class="reference internal" href="../entity.html"><em>エンティティクラス</em></a></li>
+<li>java.util.Map&lt;String, Object&gt;</li>
+<li><a class="reference internal" href="../basic.html"><em>基本型</em></a> もしくは <a class="reference internal" href="../domain.html"><em>ドメインクラス</em></a> のいずれかを要素とするjava.util.Optional</li>
+<li>java.util.OptionalInt</li>
+<li>java.util.OptionalLong</li>
+<li>java.util.OptionalDouble</li>
+</ul>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="nd">@Select</span>
+<span class="n">Stream</span><span class="o">&lt;</span><span class="n">Employee</span><span class="o">&gt;</span> <span class="nf">selectByNameAndSalary</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">,</span> <span class="n">BigDecimal</span> <span class="n">salary</span><span class="o">);</span>
+</pre></div>
+</div>
+<p>呼び出し元です。</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="n">EmployeeDao</span> <span class="n">dao</span> <span class="o">=</span> <span class="k">new</span> <span class="n">EmployeeDaoImpl</span><span class="o">();</span>
+<span class="k">try</span> <span class="o">(</span><span class="n">Stream</span><span class="o">&lt;</span><span class="n">Employee</span><span class="o">&gt;</span> <span class="n">stream</span> <span class="o">=</span> <span class="n">dao</span><span class="o">.</span><span class="na">selectByNameAndSalary</span><span class="o">(</span><span class="n">name</span><span class="o">,</span> <span class="n">salary</span><span class="o">))</span> <span class="o">{</span>
+  <span class="o">...</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p><a class="reference internal" href="#id15">検索結果の保証</a> を有効にした場合、結果が0件ならば例外がスローされます。</p>
+<div class="admonition warning">
+<p class="first admonition-title">警告</p>
+<p class="last">リソースの解放漏れを防ぐためにストリームは必ずクローズしてください。
+ストリームをクローズしないと、 <code class="docutils literal"><span class="pre">java.sql.ResultSet</span></code> 、
+<code class="docutils literal"><span class="pre">java.sql.PreparedStatement</span></code> 、 <code class="docutils literal"><span class="pre">java.sql.Connection</span></code> のクローズが行われません。</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">注釈</p>
+<p>戻り値で返す方法はリソース解放漏れのリスクがあるため、特に理由がない限りは、
+Functionへ渡す方法の採用を検討してください。
+注意を促すためにDaoのメソッドに対して警告メッセージを表示します。
+警告を抑制するには以下のように <code class="docutils literal"><span class="pre">&#64;Suppress</span></code> を指定してください。</p>
+<div class="last highlight-java"><div class="highlight"><pre><span></span><span class="nd">@Select</span>
+<span class="nd">@Suppress</span><span class="o">(</span><span class="n">messages</span> <span class="o">=</span> <span class="o">{</span> <span class="n">Message</span><span class="o">.</span><span class="na">DOMA4274</span> <span class="o">})</span>
+<span class="n">Stream</span><span class="o">&lt;</span><span class="n">Employee</span><span class="o">&gt;</span> <span class="nf">selectByNameAndSalary</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">,</span> <span class="n">BigDecimal</span> <span class="n">salary</span><span class="o">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id10">
+<h2><a class="toc-backref" href="#id31">コレクト検索</a><a class="headerlink" href="#id10" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>検索結果を <code class="docutils literal"><span class="pre">java.util.Collector</span></code> で処理したい場合は、コレクト検索を利用できます。</p>
+<p>コレクト検索を実施するには、 <code class="docutils literal"><span class="pre">&#64;Select</span></code> の <code class="docutils literal"><span class="pre">strategy</span></code> 要素に <code class="docutils literal"><span class="pre">SelectType.COLLECT</span></code> を設定し、
+メソッドのパラメータに <code class="docutils literal"><span class="pre">java.stream.Collector&lt;TARGET,</span> <span class="pre">ACCUMULATION,</span> <span class="pre">RESULT&gt;</span></code> もしくは
+<code class="docutils literal"><span class="pre">java.stream.Collector&lt;TARGET,</span> <span class="pre">?,</span> <span class="pre">RESULT&gt;</span></code> のサブタイプを定義します。</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="nd">@Select</span><span class="o">(</span><span class="n">strategy</span> <span class="o">=</span> <span class="n">SelectType</span><span class="o">.</span><span class="na">COLLECT</span><span class="o">)</span>
+<span class="o">&lt;</span><span class="n">RESULT</span><span class="o">&gt;</span> <span class="n">RESULT</span> <span class="nf">selectBySalary</span><span class="o">(</span><span class="n">BigDecimal</span> <span class="n">salary</span><span class="o">,</span> <span class="n">Collector</span><span class="o">&lt;</span><span class="n">Employee</span><span class="o">,</span> <span class="o">?,</span> <span class="n">RESULT</span><span class="o">&gt;</span> <span class="n">collector</span><span class="o">);</span>
+</pre></div>
+</div>
+<p>呼び出し元は <code class="docutils literal"><span class="pre">Collector</span></code> のインスタンスを渡します。</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="n">EmployeeDao</span> <span class="n">dao</span> <span class="o">=</span> <span class="k">new</span> <span class="n">EmployeeDaoImpl</span><span class="o">();</span>
+<span class="n">Map</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">,</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Employee</span><span class="o">&gt;&gt;</span> <span class="n">result</span> <span class="o">=</span>
+    <span class="n">dao</span><span class="o">.</span><span class="na">selectBySalary</span><span class="o">(</span><span class="n">salary</span><span class="o">,</span> <span class="n">Collectors</span><span class="o">.</span><span class="na">groupingBy</span><span class="o">(</span><span class="n">Employee</span><span class="o">::</span><span class="n">getDepartmentId</span><span class="o">));</span>
+</pre></div>
+</div>
+<p><code class="docutils literal"><span class="pre">Collector&lt;TARGET,</span> <span class="pre">ACCUMULATION,</span> <span class="pre">RESULT&gt;</span></code> の型パラメータ <code class="docutils literal"><span class="pre">TARGET</span></code> は次のいずれかでなければいけません。</p>
+<ul class="simple">
+<li><a class="reference internal" href="../basic.html"><em>基本型</em></a></li>
+<li><a class="reference internal" href="../domain.html"><em>ドメインクラス</em></a></li>
+<li><a class="reference internal" href="../entity.html"><em>エンティティクラス</em></a></li>
+<li>java.util.Map&lt;String, Object&gt;</li>
+<li><a class="reference internal" href="../basic.html"><em>基本型</em></a> もしくは <a class="reference internal" href="../domain.html"><em>ドメインクラス</em></a> のいずれかを要素とするjava.util.Optional</li>
+<li>java.util.OptionalInt</li>
+<li>java.util.OptionalLong</li>
+<li>java.util.OptionalDouble</li>
+</ul>
+<p>型パラメータ <code class="docutils literal"><span class="pre">RESULT</span></code> はDaoのメソッドの戻り値に合わせなければいけません。</p>
+<p><a class="reference internal" href="#id15">検索結果の保証</a> を有効にした場合、結果が0件ならば例外がスローされます。</p>
+<div class="admonition note">
+<p class="first admonition-title">注釈</p>
+<p class="last">コレクト検索はストリーム検索のFunctionに渡す方法のショートカットです。
+ストリーム検索で得られる <code class="docutils literal"><span class="pre">Stream</span></code> オブジェクトの <code class="docutils literal"><span class="pre">collect</span></code> メソッドを使って同等のことができます。</p>
+</div>
+</div>
+<div class="section" id="id11">
+<h2><a class="toc-backref" href="#id32">検索オプションを利用した検索</a><a class="headerlink" href="#id11" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>検索オプションを表す <code class="docutils literal"><span class="pre">SelectOptions</span></code> を使用することで、SELECT文が記述されたSQLファイルをベースにし、
+ページング処理や悲観的排他制御用のSQLを自動で生成できます。</p>
+<p><code class="docutils literal"><span class="pre">SelectOptions</span></code> は、 <a class="reference internal" href="#id6">1件検索</a> 、 <a class="reference internal" href="#id7">複数件検索</a> 、 <a class="reference internal" href="#id8">ストリーム検索</a>
+と組み合わせて使用します。</p>
+<p><code class="docutils literal"><span class="pre">SelectOptions</span></code> は、Daoのメソッドのパラメータとして定義します。</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="nd">@Config</span><span class="o">(</span><span class="n">config</span> <span class="o">=</span> <span class="n">AppConfig</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">interface</span> <span class="nc">EmployeeDao</span> <span class="o">{</span>
+    <span class="nd">@Select</span>
+    <span class="n">List</span><span class="o">&lt;</span><span class="n">Employee</span><span class="o">&gt;</span> <span class="nf">selectByDepartmentName</span><span class="o">(</span><span class="n">String</span> <span class="n">departmentName</span><span class="o">,</span> <span class="n">SelectOptions</span> <span class="n">options</span><span class="o">);</span>
+    <span class="o">...</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p><code class="docutils literal"><span class="pre">SelectOptions</span></code> のインスタンスは、staticな <code class="docutils literal"><span class="pre">get</span></code> メソッドにより取得できます。</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="n">SelectOptions</span> <span class="n">options</span> <span class="o">=</span> <span class="n">SelectOptions</span><span class="o">.</span><span class="na">get</span><span class="o">();</span>
+</pre></div>
+</div>
+<div class="section" id="id12">
+<h3><a class="toc-backref" href="#id33">ページング</a><a class="headerlink" href="#id12" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p><code class="docutils literal"><span class="pre">SelectOptions</span></code> の <code class="docutils literal"><span class="pre">offset</span></code> メソッドで開始位置、 <code class="docutils literal"><span class="pre">limit</span></code> メソッドで取得件数を指定し、
+<code class="docutils literal"><span class="pre">SelectOptions</span></code> のインスタンスをDaoのメソッドに渡します。</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="n">SelectOptions</span> <span class="n">options</span> <span class="o">=</span> <span class="n">SelectOptions</span><span class="o">.</span><span class="na">get</span><span class="o">().</span><span class="na">offset</span><span class="o">(</span><span class="mi">5</span><span class="o">).</span><span class="na">limit</span><span class="o">(</span><span class="mi">10</span><span class="o">);</span>
+<span class="n">EmployeeDao</span> <span class="n">dao</span> <span class="o">=</span> <span class="k">new</span> <span class="n">EmployeeDaoImpl</span><span class="o">();</span>
+<span class="n">List</span><span class="o">&lt;</span><span class="n">Employee</span><span class="o">&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="n">dao</span><span class="o">.</span><span class="na">selectByDepartmentName</span><span class="o">(</span><span class="s">&quot;ACCOUNT&quot;</span><span class="o">,</span> <span class="n">options</span><span class="o">);</span>
+</pre></div>
+</div>
+<p>ページングは、ファイルに記述されているオリジナルのSQLを書き換え実行することで実現されています。
+オリジナルのSQLは次の条件を満たしていなければいけません。</p>
+<ul class="simple">
+<li>SELECT文である</li>
+<li>最上位のレベルでUNION、EXCEPT、INTERSECT等の集合演算を行っていない（サブクエリで利用している場合は可）</li>
+<li>ページング処理を含んでいない</li>
+</ul>
+<p>さらに、データベースの方言によっては特定の条件を満たしていなければいけません。</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="22%" />
+<col width="78%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Dialect</th>
+<th class="head">条件</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Db2Dialect</td>
+<td>offsetを指定する場合、ORDER BY句を持ちORDER BY句で指定する
+カラムすべてをSELECT句に含んでいる</td>
+</tr>
+<tr class="row-odd"><td>Mssql2008Dialect</td>
+<td>offsetを指定する場合、ORDER BY句を持ちORDER BY句で指定する
+カラムすべてをSELECT句に含んでいる</td>
+</tr>
+<tr class="row-even"><td>MssqlDialect</td>
+<td>offsetを指定する場合、ORDER BY句を持つ必要があります</td>
+</tr>
+<tr class="row-odd"><td>StandardDialect</td>
+<td>ORDER BY句を持ちORDER BY句で指定する
+カラムすべてをSELECT句に含んでいる</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id13">
+<h3><a class="toc-backref" href="#id34">悲観的排他制御</a><a class="headerlink" href="#id13" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p><code class="docutils literal"><span class="pre">SelectOptions</span></code> の <code class="docutils literal"><span class="pre">forUpdate</span></code> メソッドで悲観的排他制御を行うことを示し、
+SelectOptionsのインスタンスをDaoのメソッドに渡します。</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="n">SelectOptions</span> <span class="n">options</span> <span class="o">=</span> <span class="n">SelectOptions</span><span class="o">.</span><span class="na">get</span><span class="o">().</span><span class="na">forUpdate</span><span class="o">();</span>
+<span class="n">EmployeeDao</span> <span class="n">dao</span> <span class="o">=</span> <span class="k">new</span> <span class="n">EmployeeDaoImpl</span><span class="o">();</span>
+<span class="n">List</span><span class="o">&lt;</span><span class="n">Employee</span><span class="o">&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="n">dao</span><span class="o">.</span><span class="na">selectByDepartmentName</span><span class="o">(</span><span class="s">&quot;ACCOUNT&quot;</span><span class="o">,</span> <span class="n">options</span><span class="o">);</span>
+</pre></div>
+</div>
+<p><code class="docutils literal"><span class="pre">SelectOptions</span></code> には、ロック対象のテーブルやカラムのエイリアスを指定できる <code class="docutils literal"><span class="pre">forUpdate</span></code> メソッドや、
+ロックの取得を待機しない <code class="docutils literal"><span class="pre">forUpdateNowait</span></code> など、名前が <em>forUpdate</em>
+で始まる悲観的排他制御用のメソッドが用意されています。</p>
+<p>悲観的排他制御は、ファイルに記述されているオリジナルのSQLを書き換えて実行しています。
+オリジナルのSQLは次の条件を満たしていなければいけません。</p>
+<ul class="simple">
+<li>SELECT文である</li>
+<li>最上位のレベルでUNION、EXCEPT、INTERSECT等の集合演算を行っていない（サブクエリで利用している場合は可）</li>
+<li>悲観的排他制御の処理を含んでいない</li>
+</ul>
+<p>データベースの方言によっては、悲観的排他制御用のメソッドのすべてもしくは一部が使用できません。</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="19%" />
+<col width="81%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Dialect</th>
+<th class="head">説明</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Db2Dialect</td>
+<td>forUpdate()を使用できる</td>
+</tr>
+<tr class="row-odd"><td>H2Dialect</td>
+<td>forUpdate()を使用できる</td>
+</tr>
+<tr class="row-even"><td>HsqldbDialect</td>
+<td>forUpdate()を使用できる</td>
+</tr>
+<tr class="row-odd"><td>Mssql2008Dialect</td>
+<td>forUpdate()とforUpdateNoWait()を使用できる。
+ただし、オリジナルのSQLのFROM句は1つのテーブルだけから成らねばならない。</td>
+</tr>
+<tr class="row-even"><td>MysqlDialect</td>
+<td>forUpdate()を使用できる</td>
+</tr>
+<tr class="row-odd"><td>OracleDialect</td>
+<td>forUpdate()、forUpdate(String... aliases)、
+forUpdateNowait()、forUpdateNowait(String... aliases)、
+forUpdateWait(int waitSeconds)、
+forUpdateWait(int waitSeconds, String... aliases)を使用できる</td>
+</tr>
+<tr class="row-even"><td>PostgresDialect</td>
+<td>forUpdate()とforUpdate(String... aliases)を使用できる</td>
+</tr>
+<tr class="row-odd"><td>StandardDialect</td>
+<td>悲観的排他制御用のメソッドすべてを使用できない</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id14">
+<h3><a class="toc-backref" href="#id35">集計</a><a class="headerlink" href="#id14" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p><code class="docutils literal"><span class="pre">SelectOptions</span></code> の <code class="docutils literal"><span class="pre">count</span></code> メソッドを呼び出すことで集計件数を取得できるようになります。
+通常、ページングのオプションと組み合わせて使用し、ページングで絞り込まない場合の全件数を取得する場合に使います。</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="n">SelectOptions</span> <span class="n">options</span> <span class="o">=</span> <span class="n">SelectOptions</span><span class="o">.</span><span class="na">get</span><span class="o">().</span><span class="na">offset</span><span class="o">(</span><span class="mi">5</span><span class="o">).</span><span class="na">limit</span><span class="o">(</span><span class="mi">10</span><span class="o">).</span><span class="na">count</span><span class="o">();</span>
+<span class="n">EmployeeDao</span> <span class="n">dao</span> <span class="o">=</span> <span class="k">new</span> <span class="n">EmployeeDaoImpl</span><span class="o">();</span>
+<span class="n">List</span><span class="o">&lt;</span><span class="n">Employee</span><span class="o">&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="n">dao</span><span class="o">.</span><span class="na">selectByDepartmentName</span><span class="o">(</span><span class="s">&quot;ACCOUNT&quot;</span><span class="o">,</span> <span class="n">options</span><span class="o">);</span>
+<span class="kt">long</span> <span class="n">count</span> <span class="o">=</span> <span class="n">options</span><span class="o">.</span><span class="na">getCount</span><span class="o">();</span>
+</pre></div>
+</div>
+<p>集計件数は、Daoのメソッド呼出し後に <code class="docutils literal"><span class="pre">SelectOptions</span></code> の <code class="docutils literal"><span class="pre">getCount</span></code> メソッドを使って取得します。
+メソッド呼び出しの前に <code class="docutils literal"><span class="pre">count</span></code> メソッドを実行していない場合、 <code class="docutils literal"><span class="pre">getCount</span></code> メソッドは <code class="docutils literal"><span class="pre">-1</span></code> を返します。</p>
+</div>
+</div>
+<div class="section" id="id15">
+<h2><a class="toc-backref" href="#id36">検索結果の保証</a><a class="headerlink" href="#id15" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>検索結果が1件以上存在することを保証したい場合は、 <code class="docutils literal"><span class="pre">&#64;Select</span></code> の <code class="docutils literal"><span class="pre">ensureResult</span></code> 要素に <code class="docutils literal"><span class="pre">true</span></code> を指定します。</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="nd">@Select</span><span class="o">(</span><span class="n">ensureResult</span> <span class="o">=</span> <span class="kc">true</span><span class="o">)</span>
+<span class="n">Employee</span> <span class="nf">selectById</span><span class="o">(</span><span class="n">Integer</span> <span class="n">id</span><span class="o">);</span>
+</pre></div>
+</div>
+<p>検索結果が0件ならば <code class="docutils literal"><span class="pre">NoResultException</span></code> がスローされます。</p>
+</div>
+<div class="section" id="id16">
+<h2><a class="toc-backref" href="#id37">検索結果のマッピングの保証</a><a class="headerlink" href="#id16" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>エンティティのプロパティすべてに対して漏れなく結果セットのカラムをマッピングすることを保証したい場合は、
+<code class="docutils literal"><span class="pre">&#64;Select</span></code> の <code class="docutils literal"><span class="pre">ensureResultMapping</span></code> 要素に <code class="docutils literal"><span class="pre">true</span></code> を指定します。</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="nd">@Select</span><span class="o">(</span><span class="n">ensureResultMapping</span> <span class="o">=</span> <span class="kc">true</span><span class="o">)</span>
+<span class="n">Employee</span> <span class="nf">selectById</span><span class="o">(</span><span class="n">Integer</span> <span class="n">id</span><span class="o">);</span>
+</pre></div>
+</div>
+<p>結果セットのカラムにマッピングされないプロパティが存在する場合 <code class="docutils literal"><span class="pre">ResultMappingException</span></code> がスローされます。</p>
+</div>
+<div class="section" id="id17">
+<h2><a class="toc-backref" href="#id38">クエリタイムアウト</a><a class="headerlink" href="#id17" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><code class="docutils literal"><span class="pre">&#64;Select</span></code> の <code class="docutils literal"><span class="pre">queryTimeout</span></code> 要素にクエリタイムアウトの秒数を指定できます。</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="nd">@Select</span><span class="o">(</span><span class="n">queryTimeout</span> <span class="o">=</span> <span class="mi">10</span><span class="o">)</span>
+<span class="n">List</span><span class="o">&lt;</span><span class="n">Employee</span><span class="o">&gt;</span> <span class="nf">selectAll</span><span class="o">();</span>
+</pre></div>
+</div>
+<p>値を指定しない場合、 <a class="reference internal" href="../config.html"><em>設定</em></a> に指定されたクエリタイムアウトが使用されます。</p>
+</div>
+<div class="section" id="id18">
+<h2><a class="toc-backref" href="#id39">フェッチサイズ</a><a class="headerlink" href="#id18" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><code class="docutils literal"><span class="pre">&#64;Select</span></code> の <code class="docutils literal"><span class="pre">fetchSize</span></code> 要素にフェッチサイズを指定できます。</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="nd">@Select</span><span class="o">(</span><span class="n">fetchSize</span> <span class="o">=</span> <span class="mi">20</span><span class="o">)</span>
+<span class="n">List</span><span class="o">&lt;</span><span class="n">Employee</span><span class="o">&gt;</span> <span class="nf">selectAll</span><span class="o">();</span>
+</pre></div>
+</div>
+<p>値を指定しない場合、 <a class="reference internal" href="../config.html"><em>設定</em></a> に指定されたフェッチサイズが使用されます。</p>
+</div>
+<div class="section" id="id19">
+<h2><a class="toc-backref" href="#id40">最大行数</a><a class="headerlink" href="#id19" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><code class="docutils literal"><span class="pre">&#64;Select</span></code> の <code class="docutils literal"><span class="pre">maxRows</span></code> 要素に最大行数を指定できます。</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="nd">@Select</span><span class="o">(</span><span class="n">maxRows</span> <span class="o">=</span> <span class="mi">100</span><span class="o">)</span>
+<span class="n">List</span><span class="o">&lt;</span><span class="n">Employee</span><span class="o">&gt;</span> <span class="nf">selectAll</span><span class="o">();</span>
+</pre></div>
+</div>
+<p>値を指定しない場合、 <a class="reference internal" href="../config.html"><em>設定</em></a> に指定された最大行数が使用されます。</p>
+</div>
+<div class="section" id="id20">
+<h2><a class="toc-backref" href="#id41">マップのキーのネーミング規約</a><a class="headerlink" href="#id20" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>検索結果を <code class="docutils literal"><span class="pre">java.util.Map&lt;String,</span> <span class="pre">Object&gt;</span></code> にマッピングする場合、
+<code class="docutils literal"><span class="pre">&#64;Select</span></code> の <code class="docutils literal"><span class="pre">mapKeyNaming</span></code> 要素にマップのキーのネーミング規約を指定できます。</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="nd">@Select</span><span class="o">(</span><span class="n">mapKeyNaming</span> <span class="o">=</span> <span class="n">MapKeyNamingType</span><span class="o">.</span><span class="na">CAMEL_CASE</span><span class="o">)</span>
+<span class="n">List</span><span class="o">&lt;</span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Object</span><span class="o">&gt;&gt;</span> <span class="nf">selectAll</span><span class="o">();</span>
+</pre></div>
+</div>
+<p><code class="docutils literal"><span class="pre">MapKeyNamingType.CAMEL_CASE</span></code> は、カラム名をキャメルケースに変換することを示します。
+そのほかにカラム名を大文字や小文字に変換する規約があります。</p>
+<p>最終的な変換結果は、ここに指定した値と <a class="reference internal" href="../config.html"><em>設定</em></a> に指定された
+<code class="docutils literal"><span class="pre">MapKeyNaming</span></code> の実装により決まります。</p>
+</div>
+<div class="section" id="sql">
+<h2><a class="toc-backref" href="#id42">SQL のログ出力形式</a><a class="headerlink" href="#sql" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><code class="docutils literal"><span class="pre">&#64;Select</span></code> の <code class="docutils literal"><span class="pre">sqlLog</span></code> 要素に SQL のログ出力形式を指定できます。</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="nd">@Select</span><span class="o">(</span><span class="n">sqlLog</span> <span class="o">=</span> <span class="n">SqlLogType</span><span class="o">.</span><span class="na">RAW</span><span class="o">)</span>
+<span class="n">List</span><span class="o">&lt;</span><span class="n">Employee</span><span class="o">&gt;</span> <span class="nf">selectById</span><span class="o">(</span><span class="n">Integer</span> <span class="n">id</span><span class="o">);</span>
+</pre></div>
+</div>
+<p><code class="docutils literal"><span class="pre">SqlLogType.RAW</span></code> はバインドパラメータ（?）付きの SQL をログ出力することを表します。</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="insert.html" class="btn btn-neutral float-right" title="挿入" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="クエリ" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014, Toshihiro Nakamura.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

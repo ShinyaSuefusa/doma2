@@ -1,0 +1,346 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Doma 2 における主要な変更点 &mdash; Doma 2.0 ドキュメント</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Doma 2.0 ドキュメント" href="index.html"/>
+        <link rel="next" title="FAQ" href="faq.html"/>
+        <link rel="prev" title="リリースノート" href="release-notes.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Doma
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="getting-started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html">設定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="basic.html">基本型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="domain.html">ドメインクラス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="entity.html">エンティティクラス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dao.html">Daoインタフェース</a></li>
+<li class="toctree-l1"><a class="reference internal" href="query/index.html">クエリ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="query-builder/index.html">クエリビルダ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sql.html">SQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="expression.html">式言語</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transaction.html">トランザクション</a></li>
+<li class="toctree-l1"><a class="reference internal" href="annotation-processing.html">注釈処理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="build.html">ビルド</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="development.html">Doma の開発</a></li>
+<li class="toctree-l1"><a class="reference internal" href="integration-test.html">統合テスト</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="release-notes.html">リリースノート</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Doma 2 における主要な変更点</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">全般</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">設定</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">基本型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">ドメインクラス</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id6">エンティティクラス</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dao">Daoインタフェース</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sql">SQLに関する変更</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id7">式言語</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id8">注釈処理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id9">ビルド</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Doma</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Doma 2 における主要な変更点</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/changelog.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="doma-2">
+<h1><a class="toc-backref" href="#id10">Doma 2 における主要な変更点</a><a class="headerlink" href="#doma-2" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="contents topic" id="id1">
+<p class="topic-title first">目次</p>
+<ul class="simple">
+<li><a class="reference internal" href="#doma-2" id="id10">Doma 2 における主要な変更点</a><ul>
+<li><a class="reference internal" href="#id2" id="id11">全般</a></li>
+<li><a class="reference internal" href="#id3" id="id12">設定</a></li>
+<li><a class="reference internal" href="#id4" id="id13">基本型</a></li>
+<li><a class="reference internal" href="#id5" id="id14">ドメインクラス</a></li>
+<li><a class="reference internal" href="#id6" id="id15">エンティティクラス</a></li>
+<li><a class="reference internal" href="#dao" id="id16">Daoインタフェース</a></li>
+<li><a class="reference internal" href="#sql" id="id17">SQLに関する変更</a></li>
+<li><a class="reference internal" href="#id7" id="id18">式言語</a></li>
+<li><a class="reference internal" href="#id8" id="id19">注釈処理</a></li>
+<li><a class="reference internal" href="#id9" id="id20">ビルド</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<p>Doma 1.36.0 からの変更点の内、主なものを示しています。</p>
+<div class="section" id="id2">
+<h2><a class="toc-backref" href="#id11">全般</a><a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>Java 8 に対応しました。Java 7 以前では動作しません。</li>
+<li>deprecated な API が削除されました。</li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h2><a class="toc-backref" href="#id12">設定</a><a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">Config</span></code> の実装クラスをシングルトンとして扱えるように <code class="docutils literal"><span class="pre">&#64;SingletonConfig</span></code> が追加されました。</li>
+<li>トランザクション処理を簡易化するために <code class="docutils literal"><span class="pre">TransactionManager</span></code> が追加されました。</li>
+<li>クエリをカスタマイズ可能にするために <code class="docutils literal"><span class="pre">QueryImplementors</span></code> と <code class="docutils literal"><span class="pre">CommandImplementors</span></code> が追加されました。</li>
+<li>結果セットに未知のカラムが含まれていた場合の挙動をカスタマイズ可能にするために
+<code class="docutils literal"><span class="pre">UnknownColumnHandler</span></code> が追加されました。</li>
+<li>マップのキーのネーミング規約を一律で解決できるように <code class="docutils literal"><span class="pre">MapKeyNaming</span></code> が追加されました。</li>
+<li><code class="docutils literal"><span class="pre">AbstractDomaConfing</span></code> が削除されました。
+このクラスが提供していた実装は <code class="docutils literal"><span class="pre">Config</span></code> のデフォルトメソッドで提供されるようになりました。</li>
+<li><code class="docutils literal"><span class="pre">DefaultClassHelper</span></code> が削除されました。
+このクラスが提供していた実装は <code class="docutils literal"><span class="pre">ClassHelper</span></code> のデフォルトメソッドで提供されるようになりました。</li>
+<li><code class="docutils literal"><span class="pre">NullRequiresNewController</span></code> が削除されました。
+このクラスが提供していた実装は <code class="docutils literal"><span class="pre">RequiresNewController</span></code>
+のデフォルトメソッドで提供されるようになりました。</li>
+</ul>
+</div>
+<div class="section" id="id4">
+<h2><a class="toc-backref" href="#id13">基本型</a><a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">Object</span></code> 型が基本型と認識されるようになりました。</li>
+<li><code class="docutils literal"><span class="pre">java.time.LocalDate</span></code> 型が基本型と認識されるようになりました。</li>
+<li><code class="docutils literal"><span class="pre">java.time.LocalTime</span></code> 型が基本型と認識されるようになりました。</li>
+<li><code class="docutils literal"><span class="pre">java.time.LocalDateTime</span></code> 型が基本型と認識されるようになりました。</li>
+</ul>
+</div>
+<div class="section" id="id5">
+<h2><a class="toc-backref" href="#id14">ドメインクラス</a><a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">&#64;Domain</span></code> を使ってドメインクラスを作った場合、デフォルトでは <code class="docutils literal"><span class="pre">null</span></code> を受け入れなくなりました。
+<code class="docutils literal"><span class="pre">null</span></code> を受け入れるには <code class="docutils literal"><span class="pre">&#64;Domain</span></code> の <code class="docutils literal"><span class="pre">acceptNull</span></code> 要素に <code class="docutils literal"><span class="pre">true</span></code> の指定が必要です。</li>
+</ul>
+</div>
+<div class="section" id="id6">
+<h2><a class="toc-backref" href="#id15">エンティティクラス</a><a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>実験的な扱いだったイミュータブルなエンティティが正式にサポートされました。</li>
+<li>プロパティに基本型やドメインクラスを要素とする
+<code class="docutils literal"><span class="pre">java.util.Optional</span></code> を定義できるようになりました。</li>
+<li>プロパティに <code class="docutils literal"><span class="pre">java.util.OptionalInt</span></code> を定義できるようになりました。</li>
+<li>プロパティに <code class="docutils literal"><span class="pre">java.util.OptionalLong</span></code> を定義できるようになりました。</li>
+<li>プロパティに <code class="docutils literal"><span class="pre">java.util.OptionalDouble</span></code> を定義できるようになりました。</li>
+</ul>
+</div>
+<div class="section" id="dao">
+<h2><a class="toc-backref" href="#id16">Daoインタフェース</a><a class="headerlink" href="#dao" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>パラメータや戻り値の型に <code class="docutils literal"><span class="pre">java.util.Optional</span></code> を定義できるようになりました。</li>
+<li>パラメータや戻り値の型に <code class="docutils literal"><span class="pre">java.util.OptionalInt</span></code> を定義できるようになりました。</li>
+<li>パラメータや戻り値の型に <code class="docutils literal"><span class="pre">java.util.OptionalLong</span></code> を定義できるようになりました。</li>
+<li>パラメータや戻り値の型に <code class="docutils literal"><span class="pre">java.util.OptionalDouble</span></code> を定義できるようになりました。</li>
+<li><code class="docutils literal"><span class="pre">java.util.stream.Stream</span></code> を使って検索結果を処理できるようになりました。</li>
+<li><code class="docutils literal"><span class="pre">java.util.stream.Collector</span></code> を使って検索結果を処理できるようになりました。</li>
+<li><code class="docutils literal"><span class="pre">&#64;Delegate</span></code> が廃止になり、代わりにデフォルトメソッドが使えるようになりました。</li>
+<li><code class="docutils literal"><span class="pre">IterationCallback</span></code> を使った検索が禁止されました。
+代わりに <code class="docutils literal"><span class="pre">java.util.stream.Stream</span></code> を使った検索をしてください。</li>
+</ul>
+</div>
+<div class="section" id="sql">
+<h2><a class="toc-backref" href="#id17">SQLに関する変更</a><a class="headerlink" href="#sql" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>カラムリスト展開コメントが導入されました。</li>
+</ul>
+</div>
+<div class="section" id="id7">
+<h2><a class="toc-backref" href="#id18">式言語</a><a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>組み込み関数 <code class="docutils literal"><span class="pre">contain</span></code> を削除しました。</li>
+</ul>
+</div>
+<div class="section" id="id8">
+<h2><a class="toc-backref" href="#id19">注釈処理</a><a class="headerlink" href="#id8" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>注釈処理のオプションの名前に <code class="docutils literal"><span class="pre">doma</span></code> という名前空間を付与しました。
+Doma 以外の注釈処理のオプションとキーが重複することを避けるためです。</li>
+</ul>
+</div>
+<div class="section" id="id9">
+<h2><a class="toc-backref" href="#id20">ビルド</a><a class="headerlink" href="#id9" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>DomaのjarをMavenのセントラルリポジトリから提供するようにしました。</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="faq.html" class="btn btn-neutral float-right" title="FAQ" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="release-notes.html" class="btn btn-neutral" title="リリースノート" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014, Toshihiro Nakamura.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

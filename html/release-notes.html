@@ -1,0 +1,428 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>リリースノート &mdash; Doma 2.0 ドキュメント</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Doma 2.0 ドキュメント" href="index.html"/>
+        <link rel="next" title="Doma 2 における主要な変更点" href="changelog.html"/>
+        <link rel="prev" title="統合テスト" href="integration-test.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Doma
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="getting-started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html">設定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="basic.html">基本型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="domain.html">ドメインクラス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="entity.html">エンティティクラス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dao.html">Daoインタフェース</a></li>
+<li class="toctree-l1"><a class="reference internal" href="query/index.html">クエリ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="query-builder/index.html">クエリビルダ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sql.html">SQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="expression.html">式言語</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transaction.html">トランザクション</a></li>
+<li class="toctree-l1"><a class="reference internal" href="annotation-processing.html">注釈処理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="build.html">ビルド</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="development.html">Doma の開発</a></li>
+<li class="toctree-l1"><a class="reference internal" href="integration-test.html">統合テスト</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="">リリースノート</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#v2-7-0-2016-02-27">v2.7.0: 2016-02-27</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#v2-6-2-2016-02-11">v2.6.2: 2016-02-11</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#v2-6-1-2016-01-11">v2.6.1: 2016-01-11</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#v2-6-0-2015-11-21">v2.6.0: 2015-11-21</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#v2-5-1-2015-11-01">v2.5.1: 2015-11-01</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#v2-5-0-2015-10-10">v2.5.0: 2015-10-10</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#v2-4-1-2015-09-12">v2.4.1: 2015-09-12</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#v2-4-0-2015-08-14">v2.4.0: 2015-08-14</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#v2-3-1-2015-05-30">v2.3.1: 2015-05-30</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#v2-3-0-2015-05-23">v2.3.0: 2015-05-23</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#v2-2-0-2015-03-28">v2.2.0: 2015-03-28</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#v2-1-0-2014-12-30">v2.1.0: 2014-12-30</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#v2-0-1-2014-08-06">v2.0.1: 2014-08-06</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#v2-0-0-2014-07-02">v2.0.0: 2014-07-02</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#v2-0-beta-5-2014-06-07">v2.0-beta-5: 2014-06-07</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#v2-0-beta-4-2014-05-04">v2.0-beta-4: 2014-05-04</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#v2-0-beta-3-2014-04-03">v2.0-beta-3: 2014-04-03</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Doma 2 における主要な変更点</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Doma</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>リリースノート</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/release-notes.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>リリースノート<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="section" id="v2-7-0-2016-02-27">
+<h2>v2.7.0: 2016-02-27<a class="headerlink" href="#v2-7-0-2016-02-27" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/domaframework/doma/pull/125">GH125</a>
+SelectBuilder のデフォルトの FetchType を Lazy に設定</li>
+<li><a class="reference external" href="https://github.com/domaframework/doma/pull/124">GH124</a>
+間違った警告メッセージを修正</li>
+<li><a class="reference external" href="https://github.com/domaframework/doma/pull/122">GH122</a>
+検索用メソッドの戻り値の型を Stream とすることを認めた</li>
+<li><a class="reference external" href="https://github.com/domaframework/doma/pull/121">GH121</a>
+includeの説明が間違っていたのを修正</li>
+</ul>
+</div>
+<div class="section" id="v2-6-2-2016-02-11">
+<h2>v2.6.2: 2016-02-11<a class="headerlink" href="#v2-6-2-2016-02-11" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/domaframework/doma/pull/118">GH118</a>
+SQLコメント カラムリスト展開コメント リンク修正</li>
+<li><a class="reference external" href="https://github.com/domaframework/doma/pull/117">GH117</a>
+リンクに関連したJavadoc生成オプションを追加しました</li>
+<li><a class="reference external" href="https://github.com/domaframework/doma/pull/116">GH116</a>
+クエリビルダのgetSql()の呼び出しでエラーが発生しないように修正</li>
+<li><a class="reference external" href="https://github.com/domaframework/doma/pull/115">GH115</a>
+Spring Boot DevToolsに対応</li>
+</ul>
+</div>
+<div class="section" id="v2-6-1-2016-01-11">
+<h2>v2.6.1: 2016-01-11<a class="headerlink" href="#v2-6-1-2016-01-11" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/domaframework/doma/pull/111">GH111</a>
+Revert &#8220;注釈処理で生成されるコードが冗長なジェネリクスを含む問題を修正&#8221;</li>
+</ul>
+</div>
+<div class="section" id="v2-6-0-2015-11-21">
+<h2>v2.6.0: 2015-11-21<a class="headerlink" href="#v2-6-0-2015-11-21" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/domaframework/doma/pull/107">GH107</a>
+注釈処理で生成されるコードが冗長な型引数を含む問題を修正</li>
+<li><a class="reference external" href="https://github.com/domaframework/doma/pull/105">GH105</a>
+Fix cause position in UniqueConstraintException&#8217;s constructor</li>
+</ul>
+</div>
+<div class="section" id="v2-5-1-2015-11-01">
+<h2>v2.5.1: 2015-11-01<a class="headerlink" href="#v2-5-1-2015-11-01" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/domaframework/doma/pull/102">GH102</a>
+UnknownColumnHandler の handle() を空実装にすると NullPointerException が発生する問題を修正</li>
+</ul>
+</div>
+<div class="section" id="v2-5-0-2015-10-10">
+<h2>v2.5.0: 2015-10-10<a class="headerlink" href="#v2-5-0-2015-10-10" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/domaframework/doma/pull/99">GH99</a>
+バッチ更新においてパフォーマンスが悪くなる問題をデータベースのIDENTITYを事前に予約することで解決</li>
+</ul>
+</div>
+<div class="section" id="v2-4-1-2015-09-12">
+<h2>v2.4.1: 2015-09-12<a class="headerlink" href="#v2-4-1-2015-09-12" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/domaframework/doma/pull/96">GH96</a>
+埋め込み変数コメントの展開後にスペースを挿入しない</li>
+</ul>
+</div>
+<div class="section" id="v2-4-0-2015-08-14">
+<h2>v2.4.0: 2015-08-14<a class="headerlink" href="#v2-4-0-2015-08-14" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/domaframework/doma/pull/93">GH93</a>
+JdbcMappingHint#getDomainClass() がドメインクラスを返さない問題を修正</li>
+<li><a class="reference external" href="https://github.com/domaframework/doma/pull/89">GH89</a>
+PortableObjectTypeをジェネリクスにして、String等をvalueTypeとして指定できるように</li>
+<li><a class="reference external" href="https://github.com/domaframework/doma/pull/88">GH88</a>
+JdbcLoggerのメソッドのtypoを修正。 Failuer -&gt; Failure</li>
+<li><a class="reference external" href="https://github.com/domaframework/doma/pull/87">GH87</a>
+StandardExpressionFunctionsのサブクラスにpublicなコンストラクタを追加</li>
+<li><a class="reference external" href="https://github.com/domaframework/doma/pull/86">GH86</a>
+Version number spec is different from the document</li>
+<li><a class="reference external" href="https://github.com/domaframework/doma/pull/84">GH84</a>
+populate を使ったメソッドで DOMA4122 が出る問題を修正</li>
+<li><a class="reference external" href="https://github.com/domaframework/doma/pull/81">GH81</a>
+リソースバンドルが取得できない場合はデフォルトのリソースバンドルにフォールバックする</li>
+</ul>
+</div>
+<div class="section" id="v2-3-1-2015-05-30">
+<h2>v2.3.1: 2015-05-30<a class="headerlink" href="#v2-3-1-2015-05-30" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/domaframework/doma/pull/79">GH79</a>
+SQLファイルを使った更新がスキップされる問題を修正</li>
+</ul>
+</div>
+<div class="section" id="v2-3-0-2015-05-23">
+<h2>v2.3.0: 2015-05-23<a class="headerlink" href="#v2-3-0-2015-05-23" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/domaframework/doma/pull/75">GH75</a>
+SQLファイルでUPDATE文のSET句を自動生成</li>
+<li><a class="reference external" href="https://github.com/domaframework/doma/pull/74">GH74</a>
+PostgresDialectでID生成エラーが発生する問題を修正</li>
+</ul>
+</div>
+<div class="section" id="v2-2-0-2015-03-28">
+<h2>v2.2.0: 2015-03-28<a class="headerlink" href="#v2-2-0-2015-03-28" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/domaframework/doma/pull/71">GH71</a>
+インターフェースにも&#64;Domainで注釈できるようにしました</li>
+<li><a class="reference external" href="https://github.com/domaframework/doma/pull/70">GH70</a>
+EntityListenerの取得はEntityListenerProviderを介するようにしました</li>
+<li><a class="reference external" href="https://github.com/domaframework/doma/pull/67">GH67</a>
+SQL Server の OPTION 句が存在するとページングが正しく実行されない問題を修正しました</li>
+<li><a class="reference external" href="https://github.com/domaframework/doma/pull/66">GH66</a>
+ネーミング規約の適用をコンパイル時から実行時に変更</li>
+<li><a class="reference external" href="https://github.com/domaframework/doma/pull/64">GH64</a>
+イミュータブルなエンティティの取得でNullPointerException が発生するバグを修正しました</li>
+<li><a class="reference external" href="https://github.com/domaframework/doma/pull/61">GH61</a>
+SQL Server 2012 から追加された OFFSET-FETCH をページング処理に使う</li>
+<li><a class="reference external" href="https://github.com/domaframework/doma/pull/60">GH60</a>
+Mssql2008Dialect の getName() が返す値を変更しました</li>
+<li><a class="reference external" href="https://github.com/domaframework/doma/pull/59">GH59</a>
+Windows環境でテストが失敗する問題を修正</li>
+<li><a class="reference external" href="https://github.com/domaframework/doma/pull/58">GH58</a>
+StringUtilのfromCamelCaseToSnakeCaseで、カラム名に数字が含まれている場合意図している結果にならない</li>
+</ul>
+</div>
+<div class="section" id="v2-1-0-2014-12-30">
+<h2>v2.1.0: 2014-12-30<a class="headerlink" href="#v2-1-0-2014-12-30" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/domaframework/doma/issues/51">GH51</a>
+LocalTransactionManager#notSupported()が新規のトランザクションを作成する不具合を修正しました</li>
+<li><a class="reference external" href="https://github.com/domaframework/doma/pull/50">GH50</a>
+SQLコメントを使ってSQLに識別子を追記できるようにしました</li>
+<li><a class="reference external" href="https://github.com/domaframework/doma/pull/49">GH49</a>
+Gradleのプロジェクトの名前を&#8221;doma&#8221;に設定しました</li>
+<li><a class="reference external" href="https://github.com/domaframework/doma/pull/48">GH48</a>
+<cite>/*%expand</cite> と <cite>*/</cite> の間のスペースはaliasとみなさないようにしました</li>
+</ul>
+</div>
+<div class="section" id="v2-0-1-2014-08-06">
+<h2>v2.0.1: 2014-08-06<a class="headerlink" href="#v2-0-1-2014-08-06" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">DomainConverter</span></code> の第2型引数に <code class="docutils literal"><span class="pre">byte[]</span></code> を指定すると注釈処理でコンパイル
+エラーになる問題を修正しました</li>
+</ul>
+</div>
+<div class="section" id="v2-0-0-2014-07-02">
+<h2>v2.0.0: 2014-07-02<a class="headerlink" href="#v2-0-0-2014-07-02" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">UnitOfWork</span></code> を削除しました</li>
+</ul>
+</div>
+<div class="section" id="v2-0-beta-5-2014-06-07">
+<h2>v2.0-beta-5: 2014-06-07<a class="headerlink" href="#v2-0-beta-5-2014-06-07" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">List&lt;Optional&lt;Emp&gt;&gt;</span></code> や <code class="docutils literal"><span class="pre">List&lt;Optional&lt;Map&lt;String,</span> <span class="pre">Object&gt;&gt;&gt;</span></code> を戻り値とする
+Dao メソッドは注釈処理でコンパイルエラーにしました</li>
+<li>Entity 更新後に OriginalStates へ変更が反映されない問題を修正しました</li>
+<li>エンティティの識別子の値がすでに設定されている場合は自動生成処理を実行しないようにしました</li>
+<li>カラムリスト展開コメント で DOMA4257 エラーになる問題を修正しました</li>
+<li>SQLのログ出力方法をアノテーションで制御できるようにしました</li>
+<li>Dao から出力されるログのメッセージを詳細化しました</li>
+<li><code class="docutils literal"><span class="pre">UtilLoggingJdbcLogger</span></code> のロガーの名前をクラスの完全修飾名に変更しました</li>
+<li>SQL実行時にSQLファイルのパスがログに出力されない問題を修正しました</li>
+</ul>
+</div>
+<div class="section" id="v2-0-beta-4-2014-05-04">
+<h2>v2.0-beta-4: 2014-05-04<a class="headerlink" href="#v2-0-beta-4-2014-05-04" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>Pluggable Annotation Processing API の Visitor を Java 8 用のものへバージョンアップしました</li>
+<li>空の <code class="docutils literal"><span class="pre">java.util.Iterable</span></code> を IN 句にバインドする場合は SQL の <code class="docutils literal"><span class="pre">null</span></code> として扱うようにしました</li>
+<li><code class="docutils literal"><span class="pre">java.sql.SQLXML</span></code> に対応しました</li>
+<li><code class="docutils literal"><span class="pre">LocalTransaction</span></code> で指定したセーブポイント「以降」を削除すべき箇所で「以前」を削除している不具合を修正しました</li>
+<li><code class="docutils literal"><span class="pre">LocalTransaction</span></code> でセーブポイント削除時のログが間違っている不具合を修正しました</li>
+<li>Entity のプロパティの型を byte 配列にすると注釈処理に失敗する不具合を修正しました</li>
+</ul>
+</div>
+<div class="section" id="v2-0-beta-3-2014-04-03">
+<h2>v2.0-beta-3: 2014-04-03<a class="headerlink" href="#v2-0-beta-3-2014-04-03" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>検索結果を <code class="docutils literal"><span class="pre">java.util.stream.Collector</span></code> で処理できるようにしました。</li>
+<li><code class="docutils literal"><span class="pre">LocalTransactionManager</span></code> から <code class="docutils literal"><span class="pre">TransactionManager</span></code> インタフェースを抽出しました。</li>
+<li><code class="docutils literal"><span class="pre">Config</span></code> で指定した設定が一部無視される不具合を修正しました。</li>
+<li>マップのネーミング規約を一律制御するためのインタフェース <code class="docutils literal"><span class="pre">MapKeyNaming</span></code> を追加しました。</li>
+<li><code class="docutils literal"><span class="pre">java.time.LocalDate</span></code> 、 <code class="docutils literal"><span class="pre">java.time.LocalTime</span></code> 、 <code class="docutils literal"><span class="pre">java.time.LocalDateTime</span></code>
+を基本型として使用できるようにしました。</li>
+<li><code class="docutils literal"><span class="pre">JdbcLogger</span></code> の実装の差し替えを容易にするために <code class="docutils literal"><span class="pre">AbstractJdbcLogger</span></code> を追加しました。</li>
+<li><code class="docutils literal"><span class="pre">SelectStrategyType</span></code> の名前を <code class="docutils literal"><span class="pre">SelectType</span></code> に変更しました。</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="changelog.html" class="btn btn-neutral float-right" title="Doma 2 における主要な変更点" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="integration-test.html" class="btn btn-neutral" title="統合テスト" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014, Toshihiro Nakamura.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

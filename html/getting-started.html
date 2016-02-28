@@ -1,0 +1,681 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Getting Started &mdash; Doma 2.0 ドキュメント</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Doma 2.0 ドキュメント" href="index.html"/>
+        <link rel="next" title="設定" href="config.html"/>
+        <link rel="prev" title="Welcome to Doma" href="index.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Doma
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">概要</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#jdk">JDK のインストール</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#eclipse">Eclipse のインストール</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#eclipse-doma-tools">Eclipse プラグイン Doma Tools のインストール</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id3">ファイルの関連づけ</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">雛形プロジェクトのインポート</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">雛形プロジェクトの構成</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#java-sql">Java と SQL の相互遷移</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sql">SQL ファイル</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id6">検索</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id7">検索処理の追加</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id8">検索処理の実行</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id9">挿入</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id10">挿入処理の実行</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id11">更新</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id12">更新処理の実行</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id13">削除</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id14">削除処理の実行</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="config.html">設定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="basic.html">基本型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="domain.html">ドメインクラス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="entity.html">エンティティクラス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dao.html">Daoインタフェース</a></li>
+<li class="toctree-l1"><a class="reference internal" href="query/index.html">クエリ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="query-builder/index.html">クエリビルダ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sql.html">SQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="expression.html">式言語</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transaction.html">トランザクション</a></li>
+<li class="toctree-l1"><a class="reference internal" href="annotation-processing.html">注釈処理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="build.html">ビルド</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="development.html">Doma の開発</a></li>
+<li class="toctree-l1"><a class="reference internal" href="integration-test.html">統合テスト</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="release-notes.html">リリースノート</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Doma 2 における主要な変更点</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Doma</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Getting Started</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/getting-started.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="getting-started">
+<h1><a class="toc-backref" href="#id15">Getting Started</a><a class="headerlink" href="#getting-started" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="contents topic" id="id1">
+<p class="topic-title first">目次</p>
+<ul class="simple">
+<li><a class="reference internal" href="#getting-started" id="id15">Getting Started</a><ul>
+<li><a class="reference internal" href="#id2" id="id16">概要</a></li>
+<li><a class="reference internal" href="#jdk" id="id17">JDK のインストール</a></li>
+<li><a class="reference internal" href="#eclipse" id="id18">Eclipse のインストール</a></li>
+<li><a class="reference internal" href="#eclipse-doma-tools" id="id19">Eclipse プラグイン Doma Tools のインストール</a><ul>
+<li><a class="reference internal" href="#id3" id="id20">ファイルの関連づけ</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id4" id="id21">雛形プロジェクトのインポート</a></li>
+<li><a class="reference internal" href="#id5" id="id22">雛形プロジェクトの構成</a></li>
+<li><a class="reference internal" href="#java-sql" id="id23">Java と SQL の相互遷移</a></li>
+<li><a class="reference internal" href="#sql" id="id24">SQL ファイル</a></li>
+<li><a class="reference internal" href="#id6" id="id25">検索</a><ul>
+<li><a class="reference internal" href="#id7" id="id26">検索処理の追加</a></li>
+<li><a class="reference internal" href="#id8" id="id27">検索処理の実行</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id9" id="id28">挿入</a><ul>
+<li><a class="reference internal" href="#id10" id="id29">挿入処理の実行</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id11" id="id30">更新</a><ul>
+<li><a class="reference internal" href="#id12" id="id31">更新処理の実行</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id13" id="id32">削除</a><ul>
+<li><a class="reference internal" href="#id14" id="id33">削除処理の実行</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h2><a class="toc-backref" href="#id16">概要</a><a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>開発環境のセットアップ方法と基本的なデータベースアクセスの実行方法を紹介します。</p>
+<div class="admonition note">
+<p class="first admonition-title">注釈</p>
+<p class="last">このドキュメントでは、IDE として Eclipse を用いますが、
+Eclipse の代わりに IntelliJ IDEA を利用して開発することも可能です。
+IntelliJ IDEA を利用する場合は、 <a class="reference external" href="https://github.com/siosio/DomaSupport">IntelliJ Doma support plugin</a> の併用をお奨めします。</p>
+</div>
+</div>
+<div class="section" id="jdk">
+<h2><a class="toc-backref" href="#id17">JDK のインストール</a><a class="headerlink" href="#jdk" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><a class="reference external" href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html">JDK 8</a> をインストールしてください。</p>
+</div>
+<div class="section" id="eclipse">
+<h2><a class="toc-backref" href="#id18">Eclipse のインストール</a><a class="headerlink" href="#eclipse" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><a class="reference external" href="http://www.eclipse.org/downloads/">Eclipse Standard 4.4</a> をインストールしてください。</p>
+<div class="admonition note">
+<p class="first admonition-title">注釈</p>
+<p class="last">Eclipse IDE for Java EE Developers など他のパッケージでも動作しますが
+このドキュメントでは Eclipse Standard を対象とします。</p>
+</div>
+</div>
+<div class="section" id="eclipse-doma-tools">
+<h2><a class="toc-backref" href="#id19">Eclipse プラグイン Doma Tools のインストール</a><a class="headerlink" href="#eclipse-doma-tools" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Doma Tools は Java ファイルと SQL ファイルの相互遷移を可能にするプラグインです。
+Doma の利用に必須ではありませんが、このプラグインを使用すると生産性が高まります。</p>
+<p>Eclipse メニューバーから Help &gt; Install New Software... と進み、
+&#8216;Work With&#8217; のテキストボックスに次のURLを入力してください。</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>http://dl.bintray.com/domaframework/eclipse/
+</pre></div>
+</div>
+<p>以下の図のようにインストール可能なプラグインの候補が表示されるので
+Doma Tools の最新バージョンにチェックをつけてダイアログを進め
+インスートルを完了してください。</p>
+<img alt="_images/install-doma-tools.png" src="_images/install-doma-tools.png" />
+<div class="section" id="id3">
+<h3><a class="toc-backref" href="#id20">ファイルの関連づけ</a><a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>Doma Tools は、 SQL ファイルの更新をフックして注釈処理を実行します。
+そのためには、 SQL ファイルを Eclipse 内で開く必要があります。</p>
+<p>メニューバーから Eclipse &gt; 環境設定... もしくは Window &gt; Preference と選択し、設定画面を開いてください。</p>
+<p>以下の図が示すように <code class="docutils literal"><span class="pre">.sql</span></code> の拡張子をもつファイルを Text Editor に関連づけてください。</p>
+<a class="reference internal image-reference" href="_images/sql-file-association.png"><img alt="_images/sql-file-association.png" src="_images/sql-file-association.png" style="width: 80%;" /></a>
+<p>同様に <code class="docutils literal"><span class="pre">.script</span></code> の拡張子をもつファイルを Text Editor に関連づけてください。</p>
+<a class="reference internal image-reference" href="_images/script-file-association.png"><img alt="_images/script-file-association.png" src="_images/script-file-association.png" style="width: 80%;" /></a>
+<div class="admonition note">
+<p class="first admonition-title">注釈</p>
+<p class="last">Eclipse IDE for Java EE Developers を利用する場合は、
+デフォルトでSQLファイルが専用のエディタに関連づけられているため
+この手順をスキップできます。</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">注釈</p>
+<p class="last">SQL は RDBMS 固有のツール（<a class="reference external" href="http://www.oracle.com/technetwork/developer-tools/sql-developer/overview/index.html">Oracle SQL Developer</a> や <a class="reference external" href="http://www.pgadmin.org/">pgAdmin</a>）で作成し、
+完成したものを Eclipse のエディターにコピーするといった
+開発スタイルをお奨めします。</p>
+</div>
+</div>
+</div>
+<div class="section" id="id4">
+<h2><a class="toc-backref" href="#id21">雛形プロジェクトのインポート</a><a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>GitHub から simple-boilerplate を clone してください。</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ git clone git@github.com:domaframework/simple-boilerplate.git
+</pre></div>
+</div>
+<p>clone されたディレクトリに移動します。</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> simple-boilerplate
+</pre></div>
+</div>
+<p>次のコマンドで Eclipse 用の設定ファイルを生成します。</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ ./gradlew eclipse
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">注釈</p>
+<p class="last">Windows 環境では <code class="docutils literal"><span class="pre">./gradlew</span> <span class="pre">eclipse</span></code> とする代わりに <code class="docutils literal"><span class="pre">gradlew</span> <span class="pre">eclipse</span></code> としてください。</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">注釈</p>
+<p class="last">環境変数 <code class="docutils literal"><span class="pre">JAVA_HOME</span></code> に JDK 8 をインストールしたディレクトリを設定しておいてください。
+gradlew の実行に必要です。</p>
+</div>
+<p>Eclipse のメニューからFile &gt; Import... を実行し
+&#8216;Existing Projects into Workspace&#8217; を選んで simple-boilerplate をインポートします。</p>
+<a class="reference internal image-reference" href="_images/import.png"><img alt="_images/import.png" src="_images/import.png" style="width: 80%;" /></a>
+<p>インポートが成功したことを確認するためにプロジェクトを選択して JUnit を実行してください。
+テストが1件成功すれば正常にインポートできています。</p>
+</div>
+<div class="section" id="id5">
+<h2><a class="toc-backref" href="#id22">雛形プロジェクトの構成</a><a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>プロジェクトのソースコードの構成は次のようになっています。</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>─ src
+  ├── main
+  │   ├── java
+  │   │   └── boilerplate
+  │   │       ├── AppConfig.java
+  │   │       ├── dao
+  │   │       │   ├── AppDao.java
+  │   │       │   └── EmployeeDao.java
+  │   │       └── entity
+  │   │           └── Employee.java
+  │   └── resources
+  │       └── META-INF
+  │           └── boilerplate
+  │               └── dao
+  │                   ├── AppDao
+  │                   │   ├── create.script
+  │                   │   └── drop.script
+  │                   └── EmployeeDao
+  │                       ├── selectAll.sql
+  │                       └── selectById.sql
+  └── test
+      ├── java
+      │   └── boilerplate
+      │       ├── DbResource.java
+      │       └── dao
+      │           └── EmployeeDaoTest.java
+      └── resources
+</pre></div>
+</div>
+<p>主要なものについて説明します。</p>
+<dl class="docutils">
+<dt>AppConfig.java</dt>
+<dd>Doma を実行するために必要な <a class="reference internal" href="config.html"><em>設定</em></a> です。</dd>
+<dt>AppDao.java</dt>
+<dd>このアプリケーションで利用するデータベースのスキーマを実行時に作成/破棄するユーティリティです。
+実環境では不要になります。
+スキーマの作成と破棄には <code class="docutils literal"><span class="pre">META-INF/boilerplate/dao/AppDao/</span></code> 以下のスクリプトファイルを使用します。</dd>
+<dt>Employee.java</dt>
+<dd>データベースの <cite>EMPLOYEE</cite> テーブルに対応する <a class="reference internal" href="entity.html"><em>エンティティクラス</em></a> です。</dd>
+<dt>EmployeeDao.java</dt>
+<dd><code class="docutils literal"><span class="pre">Employee</span></code> クラスの取得や更新などを行う <a class="reference internal" href="dao.html"><em>Daoインタフェース</em></a> です。
+<code class="docutils literal"><span class="pre">META-INF/boilerplate/dao/EmployeeDao/</span></code> 以下の SQLファイル を使用します。</dd>
+<dt>EmployeeDaoTest.java</dt>
+<dd><code class="docutils literal"><span class="pre">EmployeeDao</span></code> を使ったテストです。
+このファイルにテストケースを追加しながら Doma の学習ができます。
+テストメソッドごとにデータベーススキーマの作成と破棄を行っているため
+データの更新によって他のテストが影響を受けることはありません。</dd>
+</dl>
+</div>
+<div class="section" id="java-sql">
+<h2><a class="toc-backref" href="#id23">Java と SQL の相互遷移</a><a class="headerlink" href="#java-sql" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><code class="docutils literal"><span class="pre">EmployeeDao.java</span></code> では次のように定義されています。</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="nd">@Dao</span><span class="o">(</span><span class="n">config</span> <span class="o">=</span> <span class="n">AppConfig</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">interface</span> <span class="nc">EmployeeDao</span> <span class="o">{</span>
+
+    <span class="nd">@Select</span>
+    <span class="n">List</span><span class="o">&lt;</span><span class="n">Employee</span><span class="o">&gt;</span> <span class="nf">selectAll</span><span class="o">();</span>
+
+    <span class="nd">@Select</span>
+    <span class="n">Employee</span> <span class="nf">selectById</span><span class="o">(</span><span class="n">Integer</span> <span class="n">id</span><span class="o">);</span>
+
+    <span class="nd">@Insert</span>
+    <span class="kt">int</span> <span class="nf">insert</span><span class="o">(</span><span class="n">Employee</span> <span class="n">employee</span><span class="o">);</span>
+
+    <span class="nd">@Update</span>
+    <span class="kt">int</span> <span class="nf">update</span><span class="o">(</span><span class="n">Employee</span> <span class="n">employee</span><span class="o">);</span>
+
+    <span class="nd">@Delete</span>
+    <span class="kt">int</span> <span class="nf">delete</span><span class="o">(</span><span class="n">Employee</span> <span class="n">employee</span><span class="o">);</span>
+
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>Eclipse のエディタ上で <code class="docutils literal"><span class="pre">selectById</span></code> メソッドにカーソルを合わせ右クリックなどで
+コンテキストメニューを表示させてください。
+メニューの中から Doma &gt; Jump to SQL を選択すると
+<code class="docutils literal"><span class="pre">META-INF/boilerplate/dao/EmployeeDao/selectById.sql</span></code> ファイルへ遷移できます。</p>
+<p>次に、<code class="docutils literal"><span class="pre">META-INF/boilerplate/dao/EmployeeDao/selectById.sql</span></code> ファイルの任意の場所に
+カーソルを置き、コンテキストメニューを表示させてください。
+メニューの中から Doma &gt; Jump to Java を選択すると
+<code class="docutils literal"><span class="pre">EmployeeDao.java</span></code> ファイルへ戻ってこられます。</p>
+</div>
+<div class="section" id="sql">
+<h2><a class="toc-backref" href="#id24">SQL ファイル</a><a class="headerlink" href="#sql" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><code class="docutils literal"><span class="pre">META-INF/boilerplate/dao/EmployeeDao/selectById.sql</span></code> ファイルを開いてください。
+このファイルには次のように記述されています。</p>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="k">select</span>
+    <span class="cm">/*%expand*/</span><span class="o">*</span>
+<span class="k">from</span>
+    <span class="n">employee</span>
+<span class="k">where</span>
+    <span class="n">id</span> <span class="o">=</span> <span class="cm">/* id */</span><span class="mi">0</span>
+</pre></div>
+</div>
+<p><code class="docutils literal"><span class="pre">/*%expand*/</span></code> は Java メソッドでマッッピングされた
+エンティティクラスの定義を参照してカラムリストを展開することを示しています。</p>
+<p><code class="docutils literal"><span class="pre">/*</span> <span class="pre">id</span> <span class="pre">*/</span></code> は Java メソッドのパラメータの値がこの SQL へバインドされることを
+示しています。</p>
+<p>後ろにある <code class="docutils literal"><span class="pre">0</span></code> はテスト用のデータです。
+このテストデータを含めることで、 SQL をツールで実行して構文上の
+誤りがないことを容易に確認できます。
+テスト用のデータは Java プログラム実行時には使われません。</p>
+<p>詳細については、 <a class="reference internal" href="sql.html"><em>SQL</em></a>  を参照してください。</p>
+</div>
+<div class="section" id="id6">
+<h2><a class="toc-backref" href="#id25">検索</a><a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><a class="reference internal" href="query/select.html"><em>検索</em></a> 処理を実行するには、 <code class="docutils literal"><span class="pre">&#64;Select</span></code> が注釈された Dao メソッドを呼び出します。</p>
+<div class="section" id="id7">
+<h3><a class="toc-backref" href="#id26">検索処理の追加</a><a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>ある年齢より小さい従業員を検索する処理を追加する手順を示します。</p>
+<p><code class="docutils literal"><span class="pre">EmployeeDao</span></code> に次のコードを追加してください。</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="nd">@Select</span>
+<span class="n">List</span><span class="o">&lt;</span><span class="n">Employee</span><span class="o">&gt;</span> <span class="nf">selectByAge</span><span class="o">(</span><span class="n">Integer</span> <span class="n">age</span><span class="o">);</span>
+</pre></div>
+</div>
+<p>このとき、注釈処理により次のエラーメッセージが Eclilpse 上に表示されます。</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>[DOMA4019] ファイル[META-INF/boilerplate/dao/EmployeeDao/selectByAge.sql]が
+クラスパスから見つかりませんでした。
+</pre></div>
+</div>
+<p>Eclipse のエディタ上で <code class="docutils literal"><span class="pre">selectByAge</span></code> メソッドにカーソルを合わせ右クリックなどで
+コンテキストメニューを表示させ、メニューの中から Doma &gt; Jump to SQL を選択してください。</p>
+<p>SQL ファイルの新規作成を行うためのダイアログが次のように表示されます。</p>
+<a class="reference internal image-reference" href="_images/new-sql-file.png"><img alt="_images/new-sql-file.png" src="_images/new-sql-file.png" style="width: 80%;" /></a>
+<p>&#8216;Finish&#8217; を押してファイルを作成してください。</p>
+<p>ファイル作成後、ファイルを空のまま保管して <code class="docutils literal"><span class="pre">EmployeeDao</span></code> に戻ると
+エラーメッセージの内容が変わります。</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>[DOMA4020] SQLファイル[META-INF/boilerplate/dao/EmployeeDao/selectByAge.sql]が空です。
+</pre></div>
+</div>
+<p><code class="docutils literal"><span class="pre">selectByAge.sql</span></code> ファイルに戻って次の SQL を記述してください。</p>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="k">select</span>
+    <span class="cm">/*%expand*/</span><span class="o">*</span>
+<span class="k">from</span>
+    <span class="n">employee</span>
+<span class="k">where</span>
+    <span class="n">age</span> <span class="o">&lt;</span> <span class="cm">/* age  */</span><span class="mi">0</span>
+</pre></div>
+</div>
+<p>これでエラーが解消されます。</p>
+</div>
+<div class="section" id="id8">
+<h3><a class="toc-backref" href="#id27">検索処理の実行</a><a class="headerlink" href="#id8" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>上記で作成した検索処理を実際に実行します。</p>
+<p><code class="docutils literal"><span class="pre">EmployeeDaoTest</span></code> に次のコードを追加してください。</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">testSelectByAge</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">TransactionManager</span> <span class="n">tm</span> <span class="o">=</span> <span class="n">AppConfig</span><span class="o">.</span><span class="na">singleton</span><span class="o">().</span><span class="na">getTransactionManager</span><span class="o">();</span>
+    <span class="n">tm</span><span class="o">.</span><span class="na">required</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="o">{</span>
+        <span class="n">List</span><span class="o">&lt;</span><span class="n">Employee</span><span class="o">&gt;</span> <span class="n">employees</span> <span class="o">=</span> <span class="n">dao</span><span class="o">.</span><span class="na">selectByAge</span><span class="o">(</span><span class="mi">35</span><span class="o">);</span>
+        <span class="n">assertEquals</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="n">employees</span><span class="o">.</span><span class="na">size</span><span class="o">());</span>
+    <span class="o">});</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>JUnit を実行し、このコードが動作することを確認してください。</p>
+<p>このとき発行される検索のための SQL は次のものです。</p>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="k">select</span>
+    <span class="n">age</span><span class="p">,</span> <span class="n">id</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="k">version</span>
+<span class="k">from</span>
+    <span class="n">employee</span>
+<span class="k">where</span>
+    <span class="n">age</span> <span class="o">&lt;</span> <span class="mi">35</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id9">
+<h2><a class="toc-backref" href="#id28">挿入</a><a class="headerlink" href="#id9" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><a class="reference internal" href="query/insert.html"><em>挿入</em></a> 処理を実行するには、 <code class="docutils literal"><span class="pre">&#64;Insert</span></code> が注釈された Dao メソッドを呼び出します。</p>
+<div class="section" id="id10">
+<h3><a class="toc-backref" href="#id29">挿入処理の実行</a><a class="headerlink" href="#id10" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p><code class="docutils literal"><span class="pre">EmployeeDao</span></code> に次のコードが存在することを確認してください。</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="nd">@Insert</span>
+<span class="kt">int</span> <span class="nf">insert</span><span class="o">(</span><span class="n">Employee</span> <span class="n">employee</span><span class="o">);</span>
+</pre></div>
+</div>
+<p>このコードを利用して挿入処理を実行します。</p>
+<p><code class="docutils literal"><span class="pre">EmployeeDaoTest</span></code> に次のコードを追加してください。</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">testInsert</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">TransactionManager</span> <span class="n">tm</span> <span class="o">=</span> <span class="n">AppConfig</span><span class="o">.</span><span class="na">singleton</span><span class="o">().</span><span class="na">getTransactionManager</span><span class="o">();</span>
+
+    <span class="n">Employee</span> <span class="n">employee</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Employee</span><span class="o">();</span>
+
+    <span class="c1">// 最初のトランザクション</span>
+    <span class="c1">// 挿入を実行している</span>
+    <span class="n">tm</span><span class="o">.</span><span class="na">required</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="o">{</span>
+        <span class="n">employee</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="s">&quot;HOGE&quot;</span><span class="o">;</span>
+        <span class="n">employee</span><span class="o">.</span><span class="na">age</span> <span class="o">=</span> <span class="mi">20</span><span class="o">;</span>
+        <span class="n">dao</span><span class="o">.</span><span class="na">insert</span><span class="o">(</span><span class="n">employee</span><span class="o">);</span>
+        <span class="n">assertNotNull</span><span class="o">(</span><span class="n">employee</span><span class="o">.</span><span class="na">id</span><span class="o">);</span>
+    <span class="o">});</span>
+
+    <span class="c1">// 2番目のトランザクション</span>
+    <span class="c1">// 挿入が成功していることを確認している</span>
+    <span class="n">tm</span><span class="o">.</span><span class="na">required</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="o">{</span>
+        <span class="n">Employee</span> <span class="n">employee2</span> <span class="o">=</span> <span class="n">dao</span><span class="o">.</span><span class="na">selectById</span><span class="o">(</span><span class="n">employee</span><span class="o">.</span><span class="na">id</span><span class="o">);</span>
+        <span class="n">assertEquals</span><span class="o">(</span><span class="s">&quot;HOGE&quot;</span><span class="o">,</span> <span class="n">employee2</span><span class="o">.</span><span class="na">name</span><span class="o">);</span>
+        <span class="n">assertEquals</span><span class="o">(</span><span class="n">Integer</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="mi">20</span><span class="o">),</span> <span class="n">employee2</span><span class="o">.</span><span class="na">age</span><span class="o">);</span>
+        <span class="n">assertEquals</span><span class="o">(</span><span class="n">Integer</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="mi">1</span><span class="o">),</span> <span class="n">employee2</span><span class="o">.</span><span class="na">version</span><span class="o">);</span>
+    <span class="o">});</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>JUnit を実行し、このコードが動作することを確認してください。</p>
+<p>このとき発行される挿入のための SQL は次のものです。</p>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="k">insert</span> <span class="k">into</span> <span class="n">Employee</span> <span class="p">(</span><span class="n">age</span><span class="p">,</span> <span class="n">id</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="k">version</span><span class="p">)</span> <span class="k">values</span> <span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="s1">&#39;HOGE&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>識別子とバージョン番号が自動で設定されています。</p>
+</div>
+</div>
+<div class="section" id="id11">
+<h2><a class="toc-backref" href="#id30">更新</a><a class="headerlink" href="#id11" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><a class="reference internal" href="query/update.html"><em>更新</em></a> 処理を実行するには、 <code class="docutils literal"><span class="pre">&#64;Update</span></code> が注釈された Dao メソッドを呼び出します。</p>
+<div class="section" id="id12">
+<h3><a class="toc-backref" href="#id31">更新処理の実行</a><a class="headerlink" href="#id12" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p><code class="docutils literal"><span class="pre">EmployeeDao</span></code> に次のコードが存在することを確認してください。</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="nd">@Update</span>
+<span class="kt">int</span> <span class="nf">update</span><span class="o">(</span><span class="n">Employee</span> <span class="n">employee</span><span class="o">);</span>
+</pre></div>
+</div>
+<p>このコードを利用して更新処理を実行します。</p>
+<p><code class="docutils literal"><span class="pre">EmployeeDaoTest</span></code> に次のコードを追加してください。</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">testUpdate</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">TransactionManager</span> <span class="n">tm</span> <span class="o">=</span> <span class="n">AppConfig</span><span class="o">.</span><span class="na">singleton</span><span class="o">().</span><span class="na">getTransactionManager</span><span class="o">();</span>
+
+    <span class="c1">// 最初のトランザクション</span>
+    <span class="c1">// 検索して age フィールドを更新している</span>
+    <span class="n">tm</span><span class="o">.</span><span class="na">required</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="o">{</span>
+        <span class="n">Employee</span> <span class="n">employee</span> <span class="o">=</span> <span class="n">dao</span><span class="o">.</span><span class="na">selectById</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+        <span class="n">assertEquals</span><span class="o">(</span><span class="s">&quot;ALLEN&quot;</span><span class="o">,</span> <span class="n">employee</span><span class="o">.</span><span class="na">name</span><span class="o">);</span>
+        <span class="n">assertEquals</span><span class="o">(</span><span class="n">Integer</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="mi">30</span><span class="o">),</span> <span class="n">employee</span><span class="o">.</span><span class="na">age</span><span class="o">);</span>
+        <span class="n">assertEquals</span><span class="o">(</span><span class="n">Integer</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="mi">0</span><span class="o">),</span> <span class="n">employee</span><span class="o">.</span><span class="na">version</span><span class="o">);</span>
+        <span class="n">employee</span><span class="o">.</span><span class="na">age</span> <span class="o">=</span> <span class="mi">50</span><span class="o">;</span>
+        <span class="n">dao</span><span class="o">.</span><span class="na">update</span><span class="o">(</span><span class="n">employee</span><span class="o">);</span>
+        <span class="n">assertEquals</span><span class="o">(</span><span class="n">Integer</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="mi">1</span><span class="o">),</span> <span class="n">employee</span><span class="o">.</span><span class="na">version</span><span class="o">);</span>
+    <span class="o">});</span>
+
+    <span class="c1">// 2番目のトランザクション</span>
+    <span class="c1">// 更新が成功していることを確認している</span>
+    <span class="n">tm</span><span class="o">.</span><span class="na">required</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="o">{</span>
+        <span class="n">Employee</span> <span class="n">employee</span> <span class="o">=</span> <span class="n">dao</span><span class="o">.</span><span class="na">selectById</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+        <span class="n">assertEquals</span><span class="o">(</span><span class="s">&quot;ALLEN&quot;</span><span class="o">,</span> <span class="n">employee</span><span class="o">.</span><span class="na">name</span><span class="o">);</span>
+        <span class="n">assertEquals</span><span class="o">(</span><span class="n">Integer</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="mi">50</span><span class="o">),</span> <span class="n">employee</span><span class="o">.</span><span class="na">age</span><span class="o">);</span>
+        <span class="n">assertEquals</span><span class="o">(</span><span class="n">Integer</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="mi">1</span><span class="o">),</span> <span class="n">employee</span><span class="o">.</span><span class="na">version</span><span class="o">);</span>
+    <span class="o">});</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>JUnit を実行し、このコードが動作することを確認してください。</p>
+<p>このとき発行される更新のための SQL は次のものです。</p>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="k">update</span> <span class="n">Employee</span> <span class="k">set</span> <span class="n">age</span> <span class="o">=</span> <span class="mi">50</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;ALLEN&#39;</span><span class="p">,</span> <span class="k">version</span> <span class="o">=</span> <span class="mi">0</span> <span class="o">+</span> <span class="mi">1</span> <span class="k">where</span> <span class="n">id</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">and</span> <span class="k">version</span> <span class="o">=</span> <span class="mi">0</span>
+</pre></div>
+</div>
+<p>楽観的排他制御のためのバージョン番号が自動でインクリメントされています。</p>
+</div>
+</div>
+<div class="section" id="id13">
+<h2><a class="toc-backref" href="#id32">削除</a><a class="headerlink" href="#id13" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><a class="reference internal" href="query/delete.html"><em>削除</em></a> 処理を実行するには、 <code class="docutils literal"><span class="pre">&#64;Delete</span></code> が注釈された Dao メソッドを呼び出します。</p>
+<div class="section" id="id14">
+<h3><a class="toc-backref" href="#id33">削除処理の実行</a><a class="headerlink" href="#id14" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p><code class="docutils literal"><span class="pre">EmployeeDao</span></code> に次のコードが存在することを確認してください。</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="nd">@Delete</span>
+<span class="kt">int</span> <span class="nf">delete</span><span class="o">(</span><span class="n">Employee</span> <span class="n">employee</span><span class="o">);</span>
+</pre></div>
+</div>
+<p>このコードを利用して削除処理を実行します。</p>
+<p><code class="docutils literal"><span class="pre">EmployeeDaoTest</span></code> に次のコードを追加してください。</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">testDelete</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">TransactionManager</span> <span class="n">tm</span> <span class="o">=</span> <span class="n">AppConfig</span><span class="o">.</span><span class="na">singleton</span><span class="o">().</span><span class="na">getTransactionManager</span><span class="o">();</span>
+
+    <span class="c1">// 最初のトランザクション</span>
+    <span class="c1">// 削除を実行している</span>
+    <span class="n">tm</span><span class="o">.</span><span class="na">required</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="o">{</span>
+        <span class="n">Employee</span> <span class="n">employee</span> <span class="o">=</span> <span class="n">dao</span><span class="o">.</span><span class="na">selectById</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+        <span class="n">dao</span><span class="o">.</span><span class="na">delete</span><span class="o">(</span><span class="n">employee</span><span class="o">);</span>
+    <span class="o">});</span>
+
+    <span class="c1">// 2番目のトランザクション</span>
+    <span class="c1">// 削除が成功していることを確認している</span>
+    <span class="n">tm</span><span class="o">.</span><span class="na">required</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="o">{</span>
+        <span class="n">Employee</span> <span class="n">employee</span> <span class="o">=</span> <span class="n">dao</span><span class="o">.</span><span class="na">selectById</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+        <span class="n">assertNull</span><span class="o">(</span><span class="n">employee</span><span class="o">);</span>
+    <span class="o">});</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>JUnit を実行し、このコードが動作することを確認してください。</p>
+<p>このとき発行される削除のための SQL は次のものです。</p>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="k">delete</span> <span class="k">from</span> <span class="n">Employee</span> <span class="k">where</span> <span class="n">id</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">and</span> <span class="k">version</span> <span class="o">=</span> <span class="mi">0</span>
+</pre></div>
+</div>
+<p>識別子に加えバージョン番号も検索条件に指定されます。</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="config.html" class="btn btn-neutral float-right" title="設定" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Welcome to Doma" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014, Toshihiro Nakamura.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

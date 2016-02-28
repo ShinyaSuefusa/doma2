@@ -1,0 +1,595 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>式言語 &mdash; Doma 2.0 ドキュメント</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Doma 2.0 ドキュメント" href="index.html"/>
+        <link rel="next" title="トランザクション" href="transaction.html"/>
+        <link rel="prev" title="SQL" href="sql.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Doma
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getting-started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html">設定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="basic.html">基本型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="domain.html">ドメインクラス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="entity.html">エンティティクラス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dao.html">Daoインタフェース</a></li>
+<li class="toctree-l1"><a class="reference internal" href="query/index.html">クエリ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="query-builder/index.html">クエリビルダ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sql.html">SQL</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">式言語</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id3">リテラル</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">比較演算子</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">論理演算子</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id6">算術演算子</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id7">連結演算子</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id8">インスタンスメソッドの呼び出し</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id9">インスタンスフィールドへのアクセス</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#static">staticメソッドの呼び出し</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id10">staticフィールドへのアクセス</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id11">組み込み関数の使用</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id12">カスタム関数の使用</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="transaction.html">トランザクション</a></li>
+<li class="toctree-l1"><a class="reference internal" href="annotation-processing.html">注釈処理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="build.html">ビルド</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="development.html">Doma の開発</a></li>
+<li class="toctree-l1"><a class="reference internal" href="integration-test.html">統合テスト</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="release-notes.html">リリースノート</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Doma 2 における主要な変更点</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Doma</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>式言語</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/expression.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1><a class="toc-backref" href="#id13">式言語</a><a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="contents topic" id="id2">
+<p class="topic-title first">目次</p>
+<ul class="simple">
+<li><a class="reference internal" href="#id1" id="id13">式言語</a><ul>
+<li><a class="reference internal" href="#id3" id="id14">リテラル</a></li>
+<li><a class="reference internal" href="#id4" id="id15">比較演算子</a></li>
+<li><a class="reference internal" href="#id5" id="id16">論理演算子</a></li>
+<li><a class="reference internal" href="#id6" id="id17">算術演算子</a></li>
+<li><a class="reference internal" href="#id7" id="id18">連結演算子</a></li>
+<li><a class="reference internal" href="#id8" id="id19">インスタンスメソッドの呼び出し</a></li>
+<li><a class="reference internal" href="#id9" id="id20">インスタンスフィールドへのアクセス</a></li>
+<li><a class="reference internal" href="#static" id="id21">staticメソッドの呼び出し</a></li>
+<li><a class="reference internal" href="#id10" id="id22">staticフィールドへのアクセス</a></li>
+<li><a class="reference internal" href="#id11" id="id23">組み込み関数の使用</a></li>
+<li><a class="reference internal" href="#id12" id="id24">カスタム関数の使用</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<p><a class="reference internal" href="sql.html"><em>SQL</em></a> 中の式コメントには簡易な式を記述できます。
+文法はJavaとほとんど同じです。
+ただし、Javaで可能なことすべてができるわけではありません。</p>
+<div class="admonition note">
+<p class="first admonition-title">注釈</p>
+<p>特に大きな違いは、 <code class="docutils literal"><span class="pre">java.util.Optional</span></code> などのオプショナルな型の扱い方にあります。
+式の中では、 <code class="docutils literal"><span class="pre">Optional</span></code> 型の値は常にその要素の型の値に自動変換されます。
+たとえば、 <code class="docutils literal"><span class="pre">Optional&lt;String&gt;</span></code> 型の値は <code class="docutils literal"><span class="pre">String</span></code> 型の値として扱われます。
+したがって、 <code class="docutils literal"><span class="pre">Optional</span></code> 型のメソッドを呼び出したり、
+<code class="docutils literal"><span class="pre">Optional</span></code> 型をパラメータとするメソッドの呼び出しはできません。</p>
+<p>値の存在の有無を確認する場合は、 <code class="docutils literal"><span class="pre">/*%if</span> <span class="pre">optional.isPresent()</span> <span class="pre">*/</span></code> とする替わりに
+<code class="docutils literal"><span class="pre">/*%if</span> <span class="pre">optional</span> <span class="pre">!=</span> <span class="pre">null</span> <span class="pre">*/</span></code> としてください。</p>
+<p class="last"><code class="docutils literal"><span class="pre">java.util.OptionalInt</span></code> 、 <code class="docutils literal"><span class="pre">java.util.OptionalDouble</span></code> 、 <code class="docutils literal"><span class="pre">java.util.OptionalLong</span></code>
+についても同様です。</p>
+</div>
+<div class="section" id="id3">
+<h2><a class="toc-backref" href="#id14">リテラル</a><a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>以下のリテラルが用意されています。</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="31%" />
+<col width="69%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">リテラル</th>
+<th class="head">型</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>null</td>
+<td>void</td>
+</tr>
+<tr class="row-odd"><td>true</td>
+<td>boolean</td>
+</tr>
+<tr class="row-even"><td>false</td>
+<td>boolean</td>
+</tr>
+<tr class="row-odd"><td>10</td>
+<td>int</td>
+</tr>
+<tr class="row-even"><td>10L</td>
+<td>long</td>
+</tr>
+<tr class="row-odd"><td>0.123F</td>
+<td>float</td>
+</tr>
+<tr class="row-even"><td>0.123D</td>
+<td>double</td>
+</tr>
+<tr class="row-odd"><td>0.123B</td>
+<td>java.math.BigDecimal</td>
+</tr>
+<tr class="row-even"><td>&#8216;a&#8217;</td>
+<td>char</td>
+</tr>
+<tr class="row-odd"><td>&#8220;a&#8221;</td>
+<td>java.lang.String</td>
+</tr>
+</tbody>
+</table>
+<p>数値の型は、リテラルの最後に <code class="docutils literal"><span class="pre">L</span></code> や <code class="docutils literal"><span class="pre">F</span></code> などのサフィックスを付与して区別します。
+サフィックスは大文字でなければいけません。</p>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">employee</span> <span class="k">where</span>
+<span class="cm">/*%if employeeName != null &amp;&amp; employeeName.length() &gt; 10 */</span>
+    <span class="n">employee_name</span> <span class="o">=</span> <span class="cm">/* employeeName */</span><span class="s1">&#39;smith&#39;</span>
+<span class="cm">/*%end*/</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id4">
+<h2><a class="toc-backref" href="#id15">比較演算子</a><a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>以下の比較演算子を使用できます。</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="25%" />
+<col width="75%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">演算子</th>
+<th class="head">説明</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>==</td>
+<td>等値演算子</td>
+</tr>
+<tr class="row-odd"><td>!=</td>
+<td>不等値演算子</td>
+</tr>
+<tr class="row-even"><td>&lt;</td>
+<td>小なり演算子</td>
+</tr>
+<tr class="row-odd"><td>&lt;=</td>
+<td>小なりイコール演算子</td>
+</tr>
+<tr class="row-even"><td>&gt;</td>
+<td>大なり演算子</td>
+</tr>
+<tr class="row-odd"><td>&gt;=</td>
+<td>大なりイコール演算子</td>
+</tr>
+</tbody>
+</table>
+<p>比較演算子を利用するには、 被演算子が <code class="docutils literal"><span class="pre">java.lang.Comparable</span></code> を実装している必要があります。</p>
+<p><code class="docutils literal"><span class="pre">&lt;</span></code> 、 <code class="docutils literal"><span class="pre">&lt;=</span></code> 、 <code class="docutils literal"><span class="pre">&gt;</span></code> 、 <code class="docutils literal"><span class="pre">&gt;=</span></code> では、被演算子が <code class="docutils literal"><span class="pre">null</span></code> であってはいけません。</p>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">employee</span> <span class="k">where</span>
+<span class="cm">/*%if employeeName.indexOf(&quot;s&quot;) &gt; -1 */</span>
+    <span class="n">employee_name</span> <span class="o">=</span> <span class="cm">/* employeeName */</span><span class="s1">&#39;smith&#39;</span>
+<span class="cm">/*%end*/</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id5">
+<h2><a class="toc-backref" href="#id16">論理演算子</a><a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>以下の論理演算子を使用できます。</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="31%" />
+<col width="69%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">演算子</th>
+<th class="head">説明</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>!</td>
+<td>論理否定演算子</td>
+</tr>
+<tr class="row-odd"><td>&amp;&amp;</td>
+<td>論理積演算子</td>
+</tr>
+<tr class="row-even"><td>||</td>
+<td>論理和演算子</td>
+</tr>
+</tbody>
+</table>
+<p>括弧を使って、演算子が適用される優先度を制御できます。</p>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">employee</span> <span class="k">where</span>
+<span class="cm">/*%if (departmentId == null || managerId == null) and employee_name != null */</span>
+    <span class="n">employee_name</span> <span class="o">=</span> <span class="cm">/* employeeName */</span><span class="s1">&#39;smith&#39;</span>
+<span class="cm">/*%end*/</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id6">
+<h2><a class="toc-backref" href="#id17">算術演算子</a><a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>以下の算術演算子を使用できます。</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="35%" />
+<col width="65%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">演算子</th>
+<th class="head">説明</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>+</td>
+<td>加算演算子</td>
+</tr>
+<tr class="row-odd"><td>-</td>
+<td>減算演算子</td>
+</tr>
+<tr class="row-even"><td>*</td>
+<td>乗算演算子</td>
+</tr>
+<tr class="row-odd"><td>/</td>
+<td>除算演算子</td>
+</tr>
+<tr class="row-even"><td>%</td>
+<td>剰余演算子</td>
+</tr>
+</tbody>
+</table>
+<p>被演算子は数値型でなければいけません。</p>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">employee</span> <span class="k">where</span>
+    <span class="n">salary</span> <span class="o">=</span> <span class="cm">/* salary + 1000 */</span><span class="mi">0</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id7">
+<h2><a class="toc-backref" href="#id18">連結演算子</a><a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>連結演算子 <code class="docutils literal"><span class="pre">+</span></code> を使って文字を連結できます。</p>
+<p>被演算子は次のいずれかの型でなければいけません。</p>
+<ul class="simple">
+<li>java.lang.String</li>
+<li>java.lang.Character</li>
+<li>char</li>
+</ul>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">employee</span> <span class="k">where</span>
+   <span class="n">employee_name</span> <span class="k">like</span> <span class="cm">/* employeeName + &quot;_&quot; */</span><span class="s1">&#39;smith&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id8">
+<h2><a class="toc-backref" href="#id19">インスタンスメソッドの呼び出し</a><a class="headerlink" href="#id8" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>ドット <code class="docutils literal"><span class="pre">.</span></code> で区切ってメソッド名を指定することでインスタンスメソッドを実行可能です。
+実行可能なメソッドは可視性がpublicなものだけに限られます。</p>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">employee</span> <span class="k">where</span>
+<span class="cm">/*%if employeeName.startsWith(&quot;s&quot;) */</span>
+    <span class="n">employee_name</span> <span class="o">=</span> <span class="cm">/* employeeName */</span><span class="s1">&#39;smith&#39;</span>
+<span class="cm">/*%end*/</span>
+</pre></div>
+</div>
+<p>引数がない場合はメソッド名の後ろに <code class="docutils literal"><span class="pre">()</span></code> を指定します。</p>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">employee</span> <span class="k">where</span>
+<span class="cm">/*%if employeeName.length() &gt; 10 */</span>
+    <span class="n">employee_name</span> <span class="o">=</span> <span class="cm">/* employeeName */</span><span class="s1">&#39;smith&#39;</span>
+<span class="cm">/*%end*/</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id9">
+<h2><a class="toc-backref" href="#id20">インスタンスフィールドへのアクセス</a><a class="headerlink" href="#id9" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>ドット <code class="docutils literal"><span class="pre">.</span></code> で区切ってフィールド名を指定することでインスタンスフィールドにアクセスできます。
+可視性はprivateであってもアクセス可能です。</p>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">employee</span> <span class="k">where</span>
+    <span class="n">employee_name</span> <span class="o">=</span> <span class="cm">/* employee.employeeName */</span><span class="s1">&#39;smith&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="static">
+<h2><a class="toc-backref" href="#id21">staticメソッドの呼び出し</a><a class="headerlink" href="#static" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><code class="docutils literal"><span class="pre">&#64;</span></code> で囲まれたクラスの完全修飾名にメソッドを続けることでstaticメソッドを実行可能です。
+実行可能なメソッドは可視性がpublicなものだけに限られます。</p>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">employee</span> <span class="k">where</span>
+<span class="cm">/*%if @java.util.regex.Pattern@matches(&quot;^[a-z]*$&quot;, employeeName) */</span>
+    <span class="n">employee_name</span> <span class="o">=</span> <span class="cm">/* employeeName */</span><span class="s1">&#39;smith&#39;</span>
+<span class="cm">/*%end*/</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id10">
+<h2><a class="toc-backref" href="#id22">staticフィールドへのアクセス</a><a class="headerlink" href="#id10" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><code class="docutils literal"><span class="pre">&#64;</span></code> で囲まれたクラスの完全修飾名にフィールドを続けることでstaticフィールドにアクセスできます。
+可視性はprivateであってもアクセス可能です。</p>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">employee</span> <span class="k">where</span>
+<span class="cm">/*%if employeeName.length() &lt; @java.lang.Byte@MAX_VALUE */</span>
+  <span class="n">employee_name</span> <span class="o">=</span> <span class="cm">/* employeeName */</span><span class="s1">&#39;smith&#39;</span>
+<span class="cm">/*%end*/</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id11">
+<h2><a class="toc-backref" href="#id23">組み込み関数の使用</a><a class="headerlink" href="#id11" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>組み込み関数は、主に、SQLにバインドする前にバインド変数の値を変更するためのユーティリティです。</p>
+<p>たとえば、LIKE句で前方一致検索を行う場合に次のように記述できます。</p>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">employee</span> <span class="k">where</span>
+    <span class="n">employee_name</span> <span class="k">like</span> <span class="cm">/* @prefix(employee.employeeName) */</span><span class="s1">&#39;smith&#39;</span> <span class="k">escape</span> <span class="s1">&#39;$&#39;</span>
+</pre></div>
+</div>
+<p>ここでは、 <code class="docutils literal"><span class="pre">&#64;prefix(employee.employeeName)</span></code> というように、 <code class="docutils literal"><span class="pre">employee.employeeName</span></code>
+を <code class="docutils literal"><span class="pre">&#64;prefix</span></code> 関数に渡しています。
+<code class="docutils literal"><span class="pre">&#64;prefix</span></code> 関数は、パラメータで受け取る文字列を前方一致検索用の文字列に変換します。
+また、特別な意味を持つ文字をエスケープします。
+たとえば <code class="docutils literal"><span class="pre">employee.employeeName</span></code> の値が <code class="docutils literal"><span class="pre">ABC</span></code> である場合、 値は <code class="docutils literal"><span class="pre">ABC%</span></code> に変換されます。
+もし、 <code class="docutils literal"><span class="pre">employee.employeeName</span></code> の値が <code class="docutils literal"><span class="pre">AB%C</span></code> というように <code class="docutils literal"><span class="pre">%</span></code> を含んでいる場合、
+<code class="docutils literal"><span class="pre">%</span></code> はデフォルトのエスケープシーケンス <code class="docutils literal"><span class="pre">$</span></code> でエスケープされ、値は <code class="docutils literal"><span class="pre">AB$%C%</span></code> に変換されます。</p>
+<p>使用可能な関数のシグネチャは以下のとおりです。</p>
+<dl class="docutils">
+<dt>String &#64;escape(String text, char escapeChar = &#8216;$&#8217;)</dt>
+<dd>LIKE演算のためのエスケープを行うことを示します。
+戻り値は入力値をエスケープした文字列です。
+<code class="docutils literal"><span class="pre">escapeChar</span></code> が指定されない場合、デフォルトのエスケープ文字 <code class="docutils literal"><span class="pre">$</span></code> が使用されます。
+引数に <code class="docutils literal"><span class="pre">null</span></code> を渡した場合、 <code class="docutils literal"><span class="pre">null</span></code> を返します。</dd>
+<dt>String &#64;prefix(String prefix, char escapeChar = &#8216;$&#8217;)</dt>
+<dd>前方一致検索を行うことを示します。
+戻り値は入力値をエスケープしワイルドカードを後ろに付与した文字列です。
+<code class="docutils literal"><span class="pre">escapeChar</span></code> が指定されない場合、デフォルトのエスケープ文字 <code class="docutils literal"><span class="pre">$</span></code> が使用されます。
+引数に <code class="docutils literal"><span class="pre">null</span></code> を渡した場合、 <code class="docutils literal"><span class="pre">null</span></code> を返します。</dd>
+<dt>String &#64;infix(String infix, char escapeChar = &#8216;$&#8217;)</dt>
+<dd>中間一致検索を行うことを示します。
+戻り値は入力値をエスケープしワイルドカードを前と後ろに付与した文字列です。
+<code class="docutils literal"><span class="pre">escapeChar</span></code> が指定されない場合、デフォルトのエスケープ文字 <code class="docutils literal"><span class="pre">$</span></code> が使用されます。
+引数に <code class="docutils literal"><span class="pre">null</span></code> を渡した場合、 <code class="docutils literal"><span class="pre">null</span></code> を返します。</dd>
+<dt>String &#64;suffix(String suffix, char escapeChar = &#8216;$&#8217;)</dt>
+<dd>後方一致検索を行うことを示します。
+戻り値は入力値をエスケープしワイルドカードを前に付与した文字列です。
+<code class="docutils literal"><span class="pre">escapeChar</span></code> が指定されない場合、デフォルトのエスケープ文字 <code class="docutils literal"><span class="pre">$</span></code> が使用されます。
+引数に <code class="docutils literal"><span class="pre">null</span></code> を渡した場合、 <code class="docutils literal"><span class="pre">null</span></code> を返します。</dd>
+<dt>java.util.Date &#64;roundDownTimePart(java.util.Date date)</dt>
+<dd>時刻部分を切り捨てることを示します。
+戻り値は時刻部分が切り捨てられた新しい日付です。
+引数に <code class="docutils literal"><span class="pre">null</span></code> を渡した場合、 <code class="docutils literal"><span class="pre">null</span></code> を返します。</dd>
+<dt>java.sql.Date &#64;roundDownTimePart(java.sql.Date date)</dt>
+<dd>時刻部分を切り捨てることを示します。
+戻り値は時刻部分が切り捨てられた新しい日付です。
+引数に <code class="docutils literal"><span class="pre">null</span></code> を渡した場合、 <code class="docutils literal"><span class="pre">null</span></code> を返します。</dd>
+<dt>java.sql.Timestamp &#64;roundDownTimePart(java.sql.Timestamp timestamp)</dt>
+<dd>時刻部分を切り捨てることを示します。
+戻り値は時刻部分が切り捨てられた新しいタイムスタンプです。
+引数に <code class="docutils literal"><span class="pre">null</span></code> を渡した場合、 <code class="docutils literal"><span class="pre">null</span></code> を返します。</dd>
+<dt>java.util.Date &#64;roundUpTimePart(java.util.Date date)</dt>
+<dd>時刻部分を切り上げることを示します。
+戻り値は時刻部分が切り上げられた新しい日付です。
+引数に <code class="docutils literal"><span class="pre">null</span></code> を渡した場合、 <code class="docutils literal"><span class="pre">null</span></code> を返します。</dd>
+<dt>java.sql.Date &#64;roundUpTimePart(java.sql.Date date)</dt>
+<dd>時刻部分を切り上げることを示します。
+戻り値は時刻部分が切り上げられた新しい日付です。
+引数に <code class="docutils literal"><span class="pre">null</span></code> を渡した場合、 <code class="docutils literal"><span class="pre">null</span></code> を返します。</dd>
+<dt>java.sql.Timestamp &#64;roundUpTimePart(java.sql.Timestamp timestamp)</dt>
+<dd>時刻部分を切り上げることを示します。
+戻り値は時刻部分が切り上げられた新しいタイムスタンプです。
+引数に <code class="docutils literal"><span class="pre">null</span></code> を渡した場合、 <code class="docutils literal"><span class="pre">null</span></code> を返します。</dd>
+<dt>boolean &#64;isEmpty(CharSequence charSequence)</dt>
+<dd>文字シーケンスが <code class="docutils literal"><span class="pre">null</span></code> 、もしくは文字シーケンスの長さが <code class="docutils literal"><span class="pre">0</span></code> の場合 <code class="docutils literal"><span class="pre">true</span></code> を返します。</dd>
+<dt>boolean &#64;isNotEmpty(CharSequence charSequence)</dt>
+<dd>文字シーケンスが <code class="docutils literal"><span class="pre">null</span></code> でない、かつ文字シーケンスの長さが <code class="docutils literal"><span class="pre">0</span></code> でない場合 <code class="docutils literal"><span class="pre">true</span></code> を返します。</dd>
+<dt>boolean &#64;isBlank(CharSequence charSequence)</dt>
+<dd>文字シーケンスが <code class="docutils literal"><span class="pre">null</span></code> 、もしくは文字シーケンスの長さが <code class="docutils literal"><span class="pre">0</span></code> 、
+もしくは文字シーケンスが空白だけから形成される場合 trueを返します。</dd>
+<dt>boolean &#64;isNotBlank(CharSequence charSequence)</dt>
+<dd>文字シーケンスが <code class="docutils literal"><span class="pre">null</span></code> でない、かつ文字シーケンスの長さが <code class="docutils literal"><span class="pre">0</span></code> でない、
+かつ文字シーケンスが空白だけで形成されない場合 <code class="docutils literal"><span class="pre">true</span></code> を返します。</dd>
+</dl>
+<p>これらの関数は、 <code class="docutils literal"><span class="pre">org.seasar.doma.expr.ExpressionFunctions</span></code> のメソッドに対応しています。</p>
+</div>
+<div class="section" id="id12">
+<h2><a class="toc-backref" href="#id24">カスタム関数の使用</a><a class="headerlink" href="#id12" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>関数を独自に定義し使用できます。</p>
+<p>独自に定義した関数（カスタム関数）を使用するには次の設定が必要です。</p>
+<ul class="simple">
+<li>関数は、 <code class="docutils literal"><span class="pre">org.seasar.doma.expr.ExpressionFunctions</span></code> を実装したクラスのメソッドとして定義する。</li>
+<li>メソッドはpublicなインスタンスメソッドとする。</li>
+<li>作成したクラスは <a class="reference internal" href="annotation-processing.html"><em>注釈処理</em></a> のオプションで登録する。
+オプションのキーは <code class="docutils literal"><span class="pre">doma.expr.functions</span></code> である。</li>
+<li>作成したクラスのインスタンスを設定クラスのRDBMSの方言で使用する
+（Domaが提供するRDBMSの方言の実装はコンストラクタで <code class="docutils literal"><span class="pre">ExpressionFunctions</span></code> を受け取ることが可能）。</li>
+</ul>
+<p>カスタム関数を呼び出すには、組み込み関数と同じように関数名の先頭に <code class="docutils literal"><span class="pre">&#64;</span></code> をつけます。
+たとえば、 <code class="docutils literal"><span class="pre">myfunc</span></code> という関数の呼び出しは次のように記述できます。</p>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">employee</span> <span class="k">where</span>
+    <span class="n">employee_name</span> <span class="o">=</span> <span class="cm">/* @myfunc(employee.employeeName) */</span><span class="s1">&#39;smith&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="transaction.html" class="btn btn-neutral float-right" title="トランザクション" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="sql.html" class="btn btn-neutral" title="SQL" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014, Toshihiro Nakamura.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

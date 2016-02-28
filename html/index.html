@@ -1,0 +1,395 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Welcome to Doma &mdash; Doma 2.0 ドキュメント</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Doma 2.0 ドキュメント" href="#"/>
+        <link rel="next" title="Getting Started" href="getting-started.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="#" class="icon icon-home"> Doma
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="getting-started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html">設定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="basic.html">基本型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="domain.html">ドメインクラス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="entity.html">エンティティクラス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dao.html">Daoインタフェース</a></li>
+<li class="toctree-l1"><a class="reference internal" href="query/index.html">クエリ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="query-builder/index.html">クエリビルダ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sql.html">SQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="expression.html">式言語</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transaction.html">トランザクション</a></li>
+<li class="toctree-l1"><a class="reference internal" href="annotation-processing.html">注釈処理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="build.html">ビルド</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="development.html">Doma の開発</a></li>
+<li class="toctree-l1"><a class="reference internal" href="integration-test.html">統合テスト</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="release-notes.html">リリースノート</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Doma 2 における主要な変更点</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="#">Doma</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="#">Docs</a> &raquo;</li>
+      
+    <li>Welcome to Doma</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/index.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <a class="reference external image-reference" href="https://github.com/domaframework/doma"><img alt="_images/doma.png" class="align-right" src="_images/doma.png" style="width: 200px; height: 200px;" /></a>
+<div class="section" id="welcome-to-doma">
+<h1>Welcome to Doma<a class="headerlink" href="#welcome-to-doma" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>Doma は Java のDBアクセスフレームワークです。</p>
+<p>Doma のバージョンには 1 と 2 がありますが、
+このドキュメントは <strong>バージョン 2</strong> を対象としています。</p>
+<p>Doma 2 には以下の特徴があります。</p>
+<ul class="simple">
+<li>注釈処理を使用して <strong>コンパイル時</strong> にコードの生成やコードの検証を行う</li>
+<li>データベース上のカラムの値を振る舞いを持った Java オブジェクトにマッピングできる</li>
+<li>2-way SQL と呼ばれる SQL テンプレートを利用できる</li>
+<li>Java 8 の <code class="docutils literal"><span class="pre">java.time.LocalDate</span></code> や  <code class="docutils literal"><span class="pre">java.util.Optional</span></code> や <code class="docutils literal"><span class="pre">java.util.stream.Stream</span></code> を利用できる</li>
+<li>JRE 以外のライブラリへの依存が一切ない</li>
+</ul>
+<p>このドキュメントは複数のセクションから成ります。</p>
+<ul class="simple">
+<li><a class="reference internal" href="#user-documentation">User Documentation</a></li>
+<li><a class="reference internal" href="#developer-documentation">Developer Documentation</a></li>
+<li><a class="reference internal" href="#about-doma">About Doma</a></li>
+<li><a class="reference internal" href="#links">Links</a></li>
+</ul>
+</div>
+<div class="section" id="user-documentation">
+<h1>User Documentation<a class="headerlink" href="#user-documentation" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="getting-started.html">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="getting-started.html#id2">概要</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting-started.html#jdk">JDK のインストール</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting-started.html#eclipse">Eclipse のインストール</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting-started.html#eclipse-doma-tools">Eclipse プラグイン Doma Tools のインストール</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting-started.html#id4">雛形プロジェクトのインポート</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting-started.html#id5">雛形プロジェクトの構成</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting-started.html#java-sql">Java と SQL の相互遷移</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting-started.html#sql">SQL ファイル</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting-started.html#id6">検索</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting-started.html#id9">挿入</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting-started.html#id11">更新</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting-started.html#id13">削除</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="config.html">設定</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="config.html#id3">設定項目</a></li>
+<li class="toctree-l2"><a class="reference internal" href="config.html#jdbc">JDBC ドライバのロード</a></li>
+<li class="toctree-l2"><a class="reference internal" href="config.html#id20">定義と利用例</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="basic.html">基本型</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="basic.html#id3">種類</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basic.html#id5">利用例</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="domain.html">ドメインクラス</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="domain.html#id3">内部ドメイン</a></li>
+<li class="toctree-l2"><a class="reference internal" href="domain.html#id7">外部ドメイン</a></li>
+<li class="toctree-l2"><a class="reference internal" href="domain.html#id9">利用例</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="entity.html">エンティティクラス</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="entity.html#id3">エンティティ定義</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entity.html#id8">フィールド定義</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entity.html#id17">メソッド定義</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entity.html#id18">利用例</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="dao.html">Daoインタフェース</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="dao.html#id2">Dao定義</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dao.html#id3">クエリ定義</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dao.html#dao-default-method">デフォルトメソッド</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dao.html#id5">利用例</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="query/index.html">クエリ</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="query/select.html">検索</a></li>
+<li class="toctree-l2"><a class="reference internal" href="query/insert.html">挿入</a></li>
+<li class="toctree-l2"><a class="reference internal" href="query/update.html">更新</a></li>
+<li class="toctree-l2"><a class="reference internal" href="query/delete.html">削除</a></li>
+<li class="toctree-l2"><a class="reference internal" href="query/batch-insert.html">バッチ挿入</a></li>
+<li class="toctree-l2"><a class="reference internal" href="query/batch-update.html">バッチ更新</a></li>
+<li class="toctree-l2"><a class="reference internal" href="query/batch-delete.html">バッチ削除</a></li>
+<li class="toctree-l2"><a class="reference internal" href="query/function.html">ストアドファンクション</a></li>
+<li class="toctree-l2"><a class="reference internal" href="query/procedure.html">ストアドプロシージャー</a></li>
+<li class="toctree-l2"><a class="reference internal" href="query/factory.html">ファクトリ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="query/script.html">スクリプト</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="query-builder/index.html">クエリビルダ</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="query-builder/index.html#id3">検索</a></li>
+<li class="toctree-l2"><a class="reference internal" href="query-builder/index.html#id8">挿入</a></li>
+<li class="toctree-l2"><a class="reference internal" href="query-builder/index.html#id9">更新</a></li>
+<li class="toctree-l2"><a class="reference internal" href="query-builder/index.html#id10">削除</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="sql.html">SQL</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="sql.html#id2">SQL テンプレート</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sql.html#id3">アノテーション</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sql.html#id4">SQLファイル</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sql.html#id8">SQL コメント</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="expression.html">式言語</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="expression.html#id3">リテラル</a></li>
+<li class="toctree-l2"><a class="reference internal" href="expression.html#id4">比較演算子</a></li>
+<li class="toctree-l2"><a class="reference internal" href="expression.html#id5">論理演算子</a></li>
+<li class="toctree-l2"><a class="reference internal" href="expression.html#id6">算術演算子</a></li>
+<li class="toctree-l2"><a class="reference internal" href="expression.html#id7">連結演算子</a></li>
+<li class="toctree-l2"><a class="reference internal" href="expression.html#id8">インスタンスメソッドの呼び出し</a></li>
+<li class="toctree-l2"><a class="reference internal" href="expression.html#id9">インスタンスフィールドへのアクセス</a></li>
+<li class="toctree-l2"><a class="reference internal" href="expression.html#static">staticメソッドの呼び出し</a></li>
+<li class="toctree-l2"><a class="reference internal" href="expression.html#id10">staticフィールドへのアクセス</a></li>
+<li class="toctree-l2"><a class="reference internal" href="expression.html#id11">組み込み関数の使用</a></li>
+<li class="toctree-l2"><a class="reference internal" href="expression.html#id12">カスタム関数の使用</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="transaction.html">トランザクション</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="transaction.html#id3">設定</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transaction.html#id4">利用例</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="annotation-processing.html">注釈処理</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="annotation-processing.html#id3">オプション</a></li>
+<li class="toctree-l2"><a class="reference internal" href="annotation-processing.html#eclipse">Eclipse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="annotation-processing.html#javac">javac</a></li>
+<li class="toctree-l2"><a class="reference internal" href="annotation-processing.html#gradle">Gradle</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="build.html">ビルド</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="build.html#maven-central-repository">Maven Central Repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="build.html#eclipse">Eclipse を使ったビルド</a></li>
+<li class="toctree-l2"><a class="reference internal" href="build.html#gradle">Gradle を使ったビルド</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="developer-documentation">
+<h1>Developer Documentation<a class="headerlink" href="#developer-documentation" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="development.html">Doma の開発</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="development.html#id2">ソースコード</a></li>
+<li class="toctree-l2"><a class="reference internal" href="development.html#id3">ビルド</a></li>
+<li class="toctree-l2"><a class="reference internal" href="development.html#eclipse">Eclipse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="development.html#continuous-integration">Continuous Integration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="development.html#id4">ドキュメント</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="integration-test.html">統合テスト</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="integration-test.html#id3">ソースコード</a></li>
+<li class="toctree-l2"><a class="reference internal" href="integration-test.html#id4">ビルド</a></li>
+<li class="toctree-l2"><a class="reference internal" href="integration-test.html#eclipse">Eclipse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="integration-test.html#continuous-integration">Continuous Integration</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="about-doma">
+<h1>About Doma<a class="headerlink" href="#about-doma" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="release-notes.html">リリースノート</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Doma 2 における主要な変更点</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQ</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="links">
+<h1>Links<a class="headerlink" href="#links" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/domaframework/doma">GitHub repository</a></li>
+<li><a class="reference external" href="http://www.javadoc.io/doc/org.seasar.doma/doma">JavaDoc</a></li>
+<li><a class="reference external" href="https://github.com/domaframework/simple-examples">Examples</a></li>
+<li><a class="reference external" href="http://doma-gen.readthedocs.org/">Doma-Gen</a></li>
+<li><a class="reference external" href="http://doma.seasar.org/">Doma 1</a></li>
+</ul>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="getting-started.html" class="btn btn-neutral float-right" title="Getting Started" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014, Toshihiro Nakamura.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

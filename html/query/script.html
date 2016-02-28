@@ -1,0 +1,472 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>スクリプト &mdash; Doma 2.0 ドキュメント</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Doma 2.0 ドキュメント" href="../index.html"/>
+        <link rel="up" title="クエリ" href="index.html"/>
+        <link rel="next" title="クエリビルダ" href="../query-builder/index.html"/>
+        <link rel="prev" title="ファクトリ" href="factory.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Doma
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting-started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../config.html">設定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic.html">基本型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../domain.html">ドメインクラス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../entity.html">エンティティクラス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dao.html">Daoインタフェース</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">クエリ</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="select.html">検索</a></li>
+<li class="toctree-l2"><a class="reference internal" href="insert.html">挿入</a></li>
+<li class="toctree-l2"><a class="reference internal" href="update.html">更新</a></li>
+<li class="toctree-l2"><a class="reference internal" href="delete.html">削除</a></li>
+<li class="toctree-l2"><a class="reference internal" href="batch-insert.html">バッチ挿入</a></li>
+<li class="toctree-l2"><a class="reference internal" href="batch-update.html">バッチ更新</a></li>
+<li class="toctree-l2"><a class="reference internal" href="batch-delete.html">バッチ削除</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function.html">ストアドファンクション</a></li>
+<li class="toctree-l2"><a class="reference internal" href="procedure.html">ストアドプロシージャー</a></li>
+<li class="toctree-l2"><a class="reference internal" href="factory.html">ファクトリ</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">スクリプト</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id3">スクリプトファイル</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id4">配置場所</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">ファイル名の形式</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id6">エンコーディング</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id7">区切り文字</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id8">エラー発生時の継続実行</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id9">記述例</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sql">SQL のログ出力形式</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../query-builder/index.html">クエリビルダ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sql.html">SQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../expression.html">式言語</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../transaction.html">トランザクション</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../annotation-processing.html">注釈処理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../build.html">ビルド</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../development.html">Doma の開発</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../integration-test.html">統合テスト</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../release-notes.html">リリースノート</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Doma 2 における主要な変更点</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Doma</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="index.html">クエリ</a> &raquo;</li>
+      
+    <li>スクリプト</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/query/script.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1><a class="toc-backref" href="#id10">スクリプト</a><a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="contents topic" id="id2">
+<p class="topic-title first">目次</p>
+<ul class="simple">
+<li><a class="reference internal" href="#id1" id="id10">スクリプト</a><ul>
+<li><a class="reference internal" href="#id3" id="id11">スクリプトファイル</a><ul>
+<li><a class="reference internal" href="#id4" id="id12">配置場所</a></li>
+<li><a class="reference internal" href="#id5" id="id13">ファイル名の形式</a></li>
+<li><a class="reference internal" href="#id6" id="id14">エンコーディング</a></li>
+<li><a class="reference internal" href="#id7" id="id15">区切り文字</a></li>
+<li><a class="reference internal" href="#id8" id="id16">エラー発生時の継続実行</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id9" id="id17">記述例</a></li>
+<li><a class="reference internal" href="#sql" id="id18">SQL のログ出力形式</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<p>SQLスクリプトの実行を行うには、 <code class="docutils literal"><span class="pre">&#64;Script</span></code> をDaoのメソッドに注釈します。</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="nd">@Config</span><span class="o">(</span><span class="n">config</span> <span class="o">=</span> <span class="n">AppConfig</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">interface</span> <span class="nc">EmployeeDao</span> <span class="o">{</span>
+    <span class="nd">@Script</span>
+    <span class="kt">void</span> <span class="nf">createTable</span><span class="o">();</span>
+    <span class="o">...</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>メソッドの戻り値の型は <code class="docutils literal"><span class="pre">void</span></code> でなければいけません。パラメータの数は0でなければいけません。</p>
+<p>また、メソッドに対応するスクリプトファイルが必須です。</p>
+<div class="section" id="id3">
+<h2><a class="toc-backref" href="#id11">スクリプトファイル</a><a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>スクリプトファイルでは、
+<code class="docutils literal"><span class="pre">Dialect</span></code> が提供するRDBMS名や区切り文字が使用されます。</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="41%" />
+<col width="26%" />
+<col width="15%" />
+<col width="18%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">データベース</th>
+<th class="head">Dialectの名前</th>
+<th class="head">RDBMS名</th>
+<th class="head">区切り文字</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>DB2</td>
+<td>Db2Dialect</td>
+<td>db2</td>
+<td>&#64;</td>
+</tr>
+<tr class="row-odd"><td>H2 Database Engine 1.2.126</td>
+<td>H212126Dialect</td>
+<td>h2</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>H2 Database</td>
+<td>H2Dialect</td>
+<td>h2</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>HSQLDB</td>
+<td>HsqldbDialect</td>
+<td>hsqldb</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>Microsoft SQL Server 2008</td>
+<td>Mssql2008Dialect</td>
+<td>mssql</td>
+<td>GO</td>
+</tr>
+<tr class="row-odd"><td>Microsoft SQL Server</td>
+<td>MssqlDialect</td>
+<td>mssql</td>
+<td>GO</td>
+</tr>
+<tr class="row-even"><td>MySQL</td>
+<td>MySqlDialect</td>
+<td>mysql</td>
+<td>/</td>
+</tr>
+<tr class="row-odd"><td>Oracle Database</td>
+<td>OracleDialect</td>
+<td>oracle</td>
+<td>/</td>
+</tr>
+<tr class="row-even"><td>PostgreSQL</td>
+<td>PostgresDialect</td>
+<td>postgres</td>
+<td>$$</td>
+</tr>
+<tr class="row-odd"><td>SQLite</td>
+<td>SqliteDialect</td>
+<td>sqlite</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="id4">
+<h3><a class="toc-backref" href="#id12">配置場所</a><a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>スクリプトファイルはクラスパスが通った META-INF ディレクトリ以下に配置しなければいけません。</p>
+</div>
+<div class="section" id="id5">
+<h3><a class="toc-backref" href="#id13">ファイル名の形式</a><a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>ファイル名は、次の形式でなければいけません。</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>META-INF/Daoのクラスの完全修飾名をディレクトリに変換したもの/Daoのメソッド名.script
+</pre></div>
+</div>
+<p>例えば、 Daoのクラスが <code class="docutils literal"><span class="pre">aaa.bbb.EmployeeDao</span></code> でマッピングしたいメソッドが
+<code class="docutils literal"><span class="pre">createTable</span></code> の場合、パス名は次のようになります。</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">META</span><span class="o">-</span><span class="n">INF</span><span class="o">/</span><span class="n">aaa</span><span class="o">/</span><span class="n">bbb</span><span class="o">/</span><span class="n">EmployeeDao</span><span class="o">/</span><span class="n">createTable</span><span class="o">.</span><span class="n">script</span>
+</pre></div>
+</div>
+<p>複数のRDBMSに対応する必要があり特定のRDBMSでは別のスクリプトファイルを使いたい場合、
+.script の前にハイフン区切りでRDBMS名を入れることで、
+優先的に使用するファイルを指示できます。
+たとえば、PostgreSQL専用のSQLファイルは次の名前にします。</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">META</span><span class="o">-</span><span class="n">INF</span><span class="o">/</span><span class="n">aaa</span><span class="o">/</span><span class="n">bbb</span><span class="o">/</span><span class="n">EmployeeDao</span><span class="o">/</span><span class="n">createTables</span><span class="o">-</span><span class="n">postgres</span><span class="o">.</span><span class="n">script</span>
+</pre></div>
+</div>
+<p>この場合、PostgreSQLを使用している場合に限り、
+<code class="docutils literal"><span class="pre">META-INF/aaa/bbb/EmployeeDao/createTable.script</span></code> よりも
+<code class="docutils literal"><span class="pre">META-INF/aaa/bbb/EmployeeDao/createTable-postgres.script</span></code> が優先的に使用されます。</p>
+</div>
+<div class="section" id="id6">
+<h3><a class="toc-backref" href="#id14">エンコーディング</a><a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>スクリプトファイルのエンコーディングはUTF-8でなければいけません。</p>
+</div>
+<div class="section" id="id7">
+<h3><a class="toc-backref" href="#id15">区切り文字</a><a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>スクリプトファイルの区切り文字には、
+ステートメントの区切り文字とブロックの区切り文字の2種類があります。</p>
+<p>ステートメントの区切り文字はセミコロン <code class="docutils literal"><span class="pre">;</span></code> です。</p>
+<p>ブロックの区切り文字は、 <code class="docutils literal"><span class="pre">Dialect</span></code> が提供する値が使用されます。</p>
+<p>ブロックの区切り文字は、アノテーションの <code class="docutils literal"><span class="pre">blockDelimiter</span></code>
+要素で明示することもできます。
+アノテーションで指定した場合、 <code class="docutils literal"><span class="pre">Dialect</span></code> の値よりも優先されます。</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="nd">@Script</span><span class="o">(</span><span class="n">blockDelimiter</span> <span class="o">=</span> <span class="s">&quot;GO&quot;</span><span class="o">)</span>
+<span class="kt">void</span> <span class="nf">createTable</span><span class="o">();</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id8">
+<h3><a class="toc-backref" href="#id16">エラー発生時の継続実行</a><a class="headerlink" href="#id8" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>デフォルトでは、スクリプト中のどれかのSQLの実行が失敗すれば、
+処理はそこで止まります。
+しかし、アノテーションの <code class="docutils literal"><span class="pre">haltOnError</span></code> 要素に <code class="docutils literal"><span class="pre">false</span></code>
+を指定することで、エラー発生時に処理を継続させることができます。</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="nd">@Script</span><span class="o">(</span><span class="n">haltOnError</span> <span class="o">=</span> <span class="kc">false</span><span class="o">)</span>
+<span class="kt">void</span> <span class="nf">createTable</span><span class="o">();</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id9">
+<h2><a class="toc-backref" href="#id17">記述例</a><a class="headerlink" href="#id9" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>スクリプトファイルは次のように記述できます。
+この例は、Oracle Databaseに有効なスクリプトです。</p>
+<div class="highlight-sql"><div class="highlight"><pre><span></span><span class="cm">/*</span>
+<span class="cm"> * テーブル定義（SQLステートメント）</span>
+<span class="cm"> */</span>
+<span class="k">create</span> <span class="k">table</span> <span class="n">EMPLOYEE</span> <span class="p">(</span>
+  <span class="n">ID</span> <span class="nb">numeric</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="k">primary</span> <span class="k">key</span><span class="p">,</span>  <span class="c1">-- 識別子</span>
+  <span class="n">NAME</span> <span class="n">varchar2</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>           <span class="c1">-- 名前</span>
+<span class="p">);</span>
+
+<span class="cm">/*</span>
+<span class="cm"> * データの追加（SQLステートメント）</span>
+<span class="cm"> */</span>
+<span class="k">insert</span> <span class="k">into</span> <span class="n">EMPLOYEE</span> <span class="p">(</span><span class="n">ID</span><span class="p">,</span> <span class="n">NAME</span><span class="p">)</span> <span class="k">values</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;SMITH&#39;</span><span class="p">);</span>
+
+<span class="cm">/*</span>
+<span class="cm"> * プロシージャー定義（SQLブロック）</span>
+<span class="cm"> */</span>
+<span class="k">create</span> <span class="k">or</span> <span class="k">replace</span> <span class="k">procedure</span> <span class="n">proc</span>
+<span class="p">(</span> <span class="n">cur</span> <span class="k">out</span> <span class="n">sys_refcursor</span><span class="p">,</span>
+  <span class="n">employeeid</span> <span class="k">in</span> <span class="nb">numeric</span>
+<span class="p">)</span> <span class="k">as</span>
+<span class="k">begin</span>
+  <span class="k">open</span> <span class="n">cur</span> <span class="k">for</span> <span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">employee</span> <span class="k">where</span> <span class="n">id</span> <span class="o">&gt;</span> <span class="n">employeeid</span> <span class="k">order</span> <span class="k">by</span> <span class="n">id</span><span class="p">;</span>
+<span class="k">end</span> <span class="n">proc_resultset</span><span class="p">;</span>
+<span class="o">/</span>
+
+<span class="cm">/*</span>
+<span class="cm"> * プロシージャー定義2（SQLブロック）</span>
+<span class="cm"> */</span>
+<span class="k">create</span> <span class="k">or</span> <span class="k">replace</span> <span class="k">procedure</span> <span class="n">proc2</span>
+<span class="p">(</span> <span class="n">cur</span> <span class="k">out</span> <span class="n">sys_refcursor</span><span class="p">,</span>
+  <span class="n">employeeid</span> <span class="k">in</span> <span class="nb">numeric</span>
+<span class="p">)</span> <span class="k">as</span>
+<span class="k">begin</span>
+  <span class="k">open</span> <span class="n">cur</span> <span class="k">for</span> <span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">employee</span> <span class="k">where</span> <span class="n">id</span> <span class="o">&gt;</span> <span class="n">employeeid</span> <span class="k">order</span> <span class="k">by</span> <span class="n">id</span><span class="p">;</span>
+<span class="k">end</span> <span class="n">proc_resultset</span><span class="p">;</span>
+<span class="o">/</span>
+</pre></div>
+</div>
+<p>コメントは1行コメント <code class="docutils literal"><span class="pre">--</span></code> とブロックコメント <code class="docutils literal"><span class="pre">/*</span> <span class="pre">*/</span></code> の2種類が使用できます。
+コメントは取り除かれてデータベースへ発行されます。</p>
+<p>1つのSQLステートメントは複数行に分けて記述できます。
+ステートメントはセミコロン <code class="docutils literal"><span class="pre">;</span></code> で区切らなければいけません。
+改行はステートメントの区切りとはみなされません。</p>
+<p>ストアドプロシージャーなどのブロックの区切りは、 <code class="docutils literal"><span class="pre">Dialect</span></code> のデフォルトの値か、
+<code class="docutils literal"><span class="pre">&#64;Script</span></code> の <code class="docutils literal"><span class="pre">blockDelimiter</span></code> 要素に指定した値を使用して示せます。
+この例では、 <code class="docutils literal"><span class="pre">OracleDialect</span></code> のデフォルトの区切り文字であるスラッシュ
+<code class="docutils literal"><span class="pre">/</span></code> を使用しています。
+ブロックの 区切り文字は行頭に記述し、
+区切り文字の後ろには何も記述しないようにしてください。
+つまり、区切り文字だけの行としなければいけません。</p>
+</div>
+<div class="section" id="sql">
+<h2><a class="toc-backref" href="#id18">SQL のログ出力形式</a><a class="headerlink" href="#sql" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><code class="docutils literal"><span class="pre">&#64;Script</span></code> の <code class="docutils literal"><span class="pre">sqlLog</span></code> 要素に SQL のログ出力形式を指定できます。</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="nd">@Script</span><span class="o">(</span><span class="n">sqlLog</span> <span class="o">=</span> <span class="n">SqlLogType</span><span class="o">.</span><span class="na">RAW</span><span class="o">)</span>
+<span class="kt">void</span> <span class="nf">createTable</span><span class="o">();</span>
+</pre></div>
+</div>
+<p><code class="docutils literal"><span class="pre">SqlLogType.RAW</span></code> はバインドパラメータ（?）付きの SQL をログ出力することを表します。</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../query-builder/index.html" class="btn btn-neutral float-right" title="クエリビルダ" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="factory.html" class="btn btn-neutral" title="ファクトリ" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014, Toshihiro Nakamura.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

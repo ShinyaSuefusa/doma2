@@ -1,0 +1,417 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>クエリ &mdash; Doma 2.0 ドキュメント</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Doma 2.0 ドキュメント" href="../index.html"/>
+        <link rel="next" title="検索" href="select.html"/>
+        <link rel="prev" title="Daoインタフェース" href="../dao.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Doma
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting-started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../config.html">設定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic.html">基本型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../domain.html">ドメインクラス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../entity.html">エンティティクラス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dao.html">Daoインタフェース</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">クエリ</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="select.html">検索</a></li>
+<li class="toctree-l2"><a class="reference internal" href="insert.html">挿入</a></li>
+<li class="toctree-l2"><a class="reference internal" href="update.html">更新</a></li>
+<li class="toctree-l2"><a class="reference internal" href="delete.html">削除</a></li>
+<li class="toctree-l2"><a class="reference internal" href="batch-insert.html">バッチ挿入</a></li>
+<li class="toctree-l2"><a class="reference internal" href="batch-update.html">バッチ更新</a></li>
+<li class="toctree-l2"><a class="reference internal" href="batch-delete.html">バッチ削除</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function.html">ストアドファンクション</a></li>
+<li class="toctree-l2"><a class="reference internal" href="procedure.html">ストアドプロシージャー</a></li>
+<li class="toctree-l2"><a class="reference internal" href="factory.html">ファクトリ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="script.html">スクリプト</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../query-builder/index.html">クエリビルダ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sql.html">SQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../expression.html">式言語</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../transaction.html">トランザクション</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../annotation-processing.html">注釈処理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../build.html">ビルド</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../development.html">Doma の開発</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../integration-test.html">統合テスト</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../release-notes.html">リリースノート</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Doma 2 における主要な変更点</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Doma</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+    <li>クエリ</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/query/index.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>クエリ<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="select.html">検索</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="select.html#id3">問い合わせ条件</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="select.html#id4">基本型やドメインクラスを使った問い合わせ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="select.html#id5">任意の型を使った問い合わせ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="select.html#iterablein">Iterableを使ったIN句へのマッピング</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="select.html#id6">1件検索</a></li>
+<li class="toctree-l2"><a class="reference internal" href="select.html#id7">複数件検索</a></li>
+<li class="toctree-l2"><a class="reference internal" href="select.html#id8">ストリーム検索</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="select.html#function">Functionへ渡す方法</a></li>
+<li class="toctree-l3"><a class="reference internal" href="select.html#id9">戻り値で返す方法</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="select.html#id10">コレクト検索</a></li>
+<li class="toctree-l2"><a class="reference internal" href="select.html#id11">検索オプションを利用した検索</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="select.html#id12">ページング</a></li>
+<li class="toctree-l3"><a class="reference internal" href="select.html#id13">悲観的排他制御</a></li>
+<li class="toctree-l3"><a class="reference internal" href="select.html#id14">集計</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="select.html#id15">検索結果の保証</a></li>
+<li class="toctree-l2"><a class="reference internal" href="select.html#id16">検索結果のマッピングの保証</a></li>
+<li class="toctree-l2"><a class="reference internal" href="select.html#id17">クエリタイムアウト</a></li>
+<li class="toctree-l2"><a class="reference internal" href="select.html#id18">フェッチサイズ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="select.html#id19">最大行数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="select.html#id20">マップのキーのネーミング規約</a></li>
+<li class="toctree-l2"><a class="reference internal" href="select.html#sql">SQL のログ出力形式</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="insert.html">挿入</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="insert.html#id3">戻り値</a></li>
+<li class="toctree-l2"><a class="reference internal" href="insert.html#sql">SQLの自動生成による挿入</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="insert.html#id4">識別子</a></li>
+<li class="toctree-l3"><a class="reference internal" href="insert.html#id5">バージョン番号</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="insert.html#id7">SQLファイルによる挿入</a></li>
+<li class="toctree-l2"><a class="reference internal" href="insert.html#id8">一意制約違反</a></li>
+<li class="toctree-l2"><a class="reference internal" href="insert.html#id9">クエリタイムアウト</a></li>
+<li class="toctree-l2"><a class="reference internal" href="insert.html#id10">SQL のログ出力形式</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="update.html">更新</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="update.html#id3">戻り値</a></li>
+<li class="toctree-l2"><a class="reference internal" href="update.html#sql">SQLの自動生成による更新</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="update.html#id4">SQL自動生成におけるバージョン番号と楽観的排他制御</a></li>
+<li class="toctree-l3"><a class="reference internal" href="update.html#id5">更新対象プロパティの制御</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="update.html#id6">SQLファイルによる更新</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="update.html#id7">更新カラムリスト生成コメントを使用する場合</a></li>
+<li class="toctree-l3"><a class="reference internal" href="update.html#id8">更新カラムリスト生成コメントを使用しない場合</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="update.html#id12">一意制約違反</a></li>
+<li class="toctree-l2"><a class="reference internal" href="update.html#id13">クエリタイムアウト</a></li>
+<li class="toctree-l2"><a class="reference internal" href="update.html#id14">SQL のログ出力形式</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="delete.html">削除</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="delete.html#id3">戻り値</a></li>
+<li class="toctree-l2"><a class="reference internal" href="delete.html#sql">SQLの自動生成による削除</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="delete.html#id4">SQL自動生成におけるバージョン番号と楽観的排他制御</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="delete.html#id5">SQLファイルによる削除</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="delete.html#id6">SQLファイルにおけるバージョン番号と楽観的排他制御</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="delete.html#id9">クエリタイムアウト</a></li>
+<li class="toctree-l2"><a class="reference internal" href="delete.html#id10">SQL のログ出力形式</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="batch-insert.html">バッチ挿入</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="batch-insert.html#id3">戻り値</a></li>
+<li class="toctree-l2"><a class="reference internal" href="batch-insert.html#sql">SQLの自動生成によるバッチ挿入</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="batch-insert.html#id4">識別子</a></li>
+<li class="toctree-l3"><a class="reference internal" href="batch-insert.html#id5">バージョン番号</a></li>
+<li class="toctree-l3"><a class="reference internal" href="batch-insert.html#id6">挿入対象プロパティ</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="batch-insert.html#id7">SQLファイルによるバッチ挿入</a></li>
+<li class="toctree-l2"><a class="reference internal" href="batch-insert.html#id8">一意制約違反</a></li>
+<li class="toctree-l2"><a class="reference internal" href="batch-insert.html#id9">クエリタイムアウト</a></li>
+<li class="toctree-l2"><a class="reference internal" href="batch-insert.html#id10">バッチサイズ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="batch-insert.html#id11">SQL のログ出力形式</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="batch-update.html">バッチ更新</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="batch-update.html#id3">戻り値</a></li>
+<li class="toctree-l2"><a class="reference internal" href="batch-update.html#sql">SQLの自動生成によるバッチ更新</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="batch-update.html#id4">SQL自動生成におけるバージョン番号と楽観的排他制御</a></li>
+<li class="toctree-l3"><a class="reference internal" href="batch-update.html#id5">更新対象プロパティ</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="batch-update.html#id6">SQLファイルによるバッチ更新</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="batch-update.html#id7">更新カラムリスト生成コメントを使用する場合</a></li>
+<li class="toctree-l3"><a class="reference internal" href="batch-update.html#id8">更新カラムリスト生成コメントを使用しない場合</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="batch-update.html#id12">一意制約違反</a></li>
+<li class="toctree-l2"><a class="reference internal" href="batch-update.html#id13">クエリタイムアウト</a></li>
+<li class="toctree-l2"><a class="reference internal" href="batch-update.html#id14">バッチサイズ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="batch-update.html#id15">SQL のログ出力形式</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="batch-delete.html">バッチ削除</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="batch-delete.html#id3">戻り値</a></li>
+<li class="toctree-l2"><a class="reference internal" href="batch-delete.html#sql">SQLの自動生成によるバッチ削除</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="batch-delete.html#id4">SQL自動生成におけるバージョン番号と楽観的排他制御</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="batch-delete.html#id5">SQLファイルによるバッチ削除</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="batch-delete.html#id6">SQLファイルにおけるバージョン番号と楽観的排他制御</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="batch-delete.html#id9">クエリタイムアウト</a></li>
+<li class="toctree-l2"><a class="reference internal" href="batch-delete.html#id10">バッチサイズ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="batch-delete.html#id11">SQL のログ出力形式</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="function.html">ストアドファンクション</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function.html#id3">戻り値</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="function.html#id4">結果を返さない場合</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function.html#id5">1件を返す場合</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function.html#id6">複数件を返す場合</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="function.html#id7">ファンクション名</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function.html#id8">パラメータ</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="function.html#in">INパラメータ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function.html#inout">INOUTパラメータ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function.html#out">OUTパラメータ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="function.html#id9">カーソルのOUTパラメータもしくは結果セット</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="function.html#id10">マップのキーのネーミング規約</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function.html#sql">SQL のログ出力形式</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="procedure.html">ストアドプロシージャー</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="procedure.html#id3">戻り値</a></li>
+<li class="toctree-l2"><a class="reference internal" href="procedure.html#id4">プロシージャー名</a></li>
+<li class="toctree-l2"><a class="reference internal" href="procedure.html#id5">パラメータ</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="procedure.html#in">INパラメータ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="procedure.html#inout">INOUTパラメータ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="procedure.html#out">OUTパラメータ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="procedure.html#id6">カーソルのOUTパラメータもしくは結果セット</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="procedure.html#id7">マップのキーのネーミング規約</a></li>
+<li class="toctree-l2"><a class="reference internal" href="procedure.html#sql">SQL のログ出力形式</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="factory.html">ファクトリ</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="factory.html#array">Arrayの生成</a></li>
+<li class="toctree-l2"><a class="reference internal" href="factory.html#blob">Blobの生成</a></li>
+<li class="toctree-l2"><a class="reference internal" href="factory.html#clob">Clobの生成</a></li>
+<li class="toctree-l2"><a class="reference internal" href="factory.html#nclob">NClobの生成</a></li>
+<li class="toctree-l2"><a class="reference internal" href="factory.html#sqlxml">SQLXMLの生成</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="script.html">スクリプト</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="script.html#id3">スクリプトファイル</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="script.html#id4">配置場所</a></li>
+<li class="toctree-l3"><a class="reference internal" href="script.html#id5">ファイル名の形式</a></li>
+<li class="toctree-l3"><a class="reference internal" href="script.html#id6">エンコーディング</a></li>
+<li class="toctree-l3"><a class="reference internal" href="script.html#id7">区切り文字</a></li>
+<li class="toctree-l3"><a class="reference internal" href="script.html#id8">エラー発生時の継続実行</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="script.html#id9">記述例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="script.html#sql">SQL のログ出力形式</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="select.html" class="btn btn-neutral float-right" title="検索" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../dao.html" class="btn btn-neutral" title="Daoインタフェース" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014, Toshihiro Nakamura.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

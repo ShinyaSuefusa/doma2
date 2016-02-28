@@ -1,0 +1,313 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>注釈処理 &mdash; Doma 2.0 ドキュメント</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Doma 2.0 ドキュメント" href="index.html"/>
+        <link rel="next" title="ビルド" href="build.html"/>
+        <link rel="prev" title="トランザクション" href="transaction.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Doma
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getting-started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html">設定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="basic.html">基本型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="domain.html">ドメインクラス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="entity.html">エンティティクラス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dao.html">Daoインタフェース</a></li>
+<li class="toctree-l1"><a class="reference internal" href="query/index.html">クエリ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="query-builder/index.html">クエリビルダ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sql.html">SQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="expression.html">式言語</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transaction.html">トランザクション</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">注釈処理</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id3">オプション</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#eclipse">Eclipse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#javac">javac</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#gradle">Gradle</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="build.html">ビルド</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="development.html">Doma の開発</a></li>
+<li class="toctree-l1"><a class="reference internal" href="integration-test.html">統合テスト</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="release-notes.html">リリースノート</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Doma 2 における主要な変更点</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Doma</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>注釈処理</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/annotation-processing.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1><a class="toc-backref" href="#id4">注釈処理</a><a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="contents topic" id="id2">
+<p class="topic-title first">目次</p>
+<ul class="simple">
+<li><a class="reference internal" href="#id1" id="id4">注釈処理</a><ul>
+<li><a class="reference internal" href="#id3" id="id5">オプション</a></li>
+<li><a class="reference internal" href="#eclipse" id="id6">Eclipse</a></li>
+<li><a class="reference internal" href="#javac" id="id7">javac</a></li>
+<li><a class="reference internal" href="#gradle" id="id8">Gradle</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<p><a class="reference external" href="https://www.jcp.org/en/jsr/detail?id=269">Pluggable Annotation Processing API</a>
+を利用すると、ソースコードの自動生成や検証を <strong>コンパイル時</strong> に行うことができます。</p>
+<p>DomaではこのAPIを利用することで <code class="docutils literal"><span class="pre">&#64;Entity</span></code> や <code class="docutils literal"><span class="pre">&#64;Dao</span></code> と言ったアノテーションが注釈されたクラスやインタフェースを処理し、
+必要なクラスを自動生成します。
+また、注釈されたクラスやインタフェースの検証を行い、Domaの規約に従っていないソースコードがある場合は
+エラーメッセージをIDE（Eclipseなど）のエディタやjavacを実行したコンソール上に表示します。</p>
+<p>ここでは、Domaが提供するオプションの種類と、ビルドツールごとのオプションの設定方法を説明します。</p>
+<div class="section" id="id3">
+<h2><a class="toc-backref" href="#id5">オプション</a><a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<dl class="docutils">
+<dt>doma.dao.package</dt>
+<dd><code class="docutils literal"><span class="pre">&#64;Dao</span></code> が注釈されたインタフェースの実装クラスが生成されるパッケージ。
+何らかの値を指定した場合、doma.dao.subpackageの指定よりも優先される。
+デフォルトの値は、 <code class="docutils literal"><span class="pre">&#64;Dao</span></code> が注釈されたインタフェースと同じパッケージ。</dd>
+<dt>doma.dao.subpackage</dt>
+<dd><code class="docutils literal"><span class="pre">&#64;Dao</span></code> が注釈されたインタフェースの実装クラスが生成されるサブパッケージ。
+doma.dao.packageに値を指定していない場合にのみ有効。
+<code class="docutils literal"><span class="pre">&#64;Dao</span></code> が注釈されたインタフェースのパッケージが <code class="docutils literal"><span class="pre">example.dao</span></code> で、ここに指定した値が <code class="docutils literal"><span class="pre">impl</span></code> の場合、
+生成されるクラスのパッケージは <code class="docutils literal"><span class="pre">example.dao.impl</span></code> となる。</dd>
+<dt>doma.dao.suffix</dt>
+<dd><code class="docutils literal"><span class="pre">&#64;Dao</span></code> が注釈されたインタフェースの実装クラスの名前のサフィックス。
+<code class="docutils literal"><span class="pre">&#64;Dao</span></code> が注釈されたインタフェースの単純名が <code class="docutils literal"><span class="pre">EmployeeDao</span></code> で、ここに指定した値が <code class="docutils literal"><span class="pre">Bean</span></code> の場合、
+生成されるクラスの単純名は <code class="docutils literal"><span class="pre">EmployeeDaoBean</span></code> となる。
+デフォルトの値は <code class="docutils literal"><span class="pre">Impl</span></code> 。</dd>
+<dt>doma.debug</dt>
+<dd>注釈処理のデバッグ情報をログ出力するかどうか。
+<code class="docutils literal"><span class="pre">true</span></code> の場合、ログ出力を行う。
+デフォルトの値は、 <code class="docutils literal"><span class="pre">false</span></code> 。</dd>
+<dt>doma.domain.converters</dt>
+<dd>任意の型と基本型を相互変換する <code class="docutils literal"><span class="pre">DomainConverter</span></code> のプロバイダとなるクラスの完全修飾名のカンマ区切り。
+クラスは <code class="docutils literal"><span class="pre">org.seasar.doma.DomainConverters</span></code> によって注釈されていないければいけない。</dd>
+<dt>doma.entity.field.prefix</dt>
+<dd><code class="docutils literal"><span class="pre">&#64;Entity</span></code> が注釈されたクラスごとに生成されるタイプクラスで使用される。
+タイプクラスのpublicなフィールド名のプレフィックス。
+<code class="docutils literal"><span class="pre">none</span></code> を指定するとプレフィックスを使用しないという意味になる。
+デフォルトの値は、 <code class="docutils literal"><span class="pre">$</span></code> 。</dd>
+<dt>doma.expr.functions</dt>
+<dd>式コメントで利用可能な関数群を表すクラスの完全修飾名。
+<code class="docutils literal"><span class="pre">org.seasar.doma.expr.ExpressionFunctions</span></code> のサブタイプでなければいけない。
+デフォルトの値は、 <code class="docutils literal"><span class="pre">org.seasar.doma.expr.ExpressionFunctions</span></code> 。</dd>
+<dt>doma.sql.validation</dt>
+<dd>SQLファイルの存在チェックとSQLコメントの文法チェックを行う場合は <code class="docutils literal"><span class="pre">true</span></code> 。
+行わない場合は <code class="docutils literal"><span class="pre">false</span></code> 。
+デフォルトの値は、 <code class="docutils literal"><span class="pre">true</span></code> 。</dd>
+<dt>doma.version.validation</dt>
+<dd>注釈処理によるソースコード生成で利用したDomaのバージョンと実行時のDomaのバージョンが同じであることを
+チェックする場合は <code class="docutils literal"><span class="pre">true</span></code> 。
+しない場合は <code class="docutils literal"><span class="pre">false</span></code> 。
+Domaのあるバージョンで生成されたコードを含むライブラリを作成する場合に <code class="docutils literal"><span class="pre">false</span></code> を指定してビルドすると、
+そのライブラリの再利用性が高まります。
+ライブラリが依存するDomaのバージョンとは異なるバージョンのDomaで実行できるからです
+（Domaのバージョンに互換性がある限りにおいて）。
+デフォルトの値は、 <code class="docutils literal"><span class="pre">true</span></code> 。</dd>
+</dl>
+</div>
+<div class="section" id="eclipse">
+<h2><a class="toc-backref" href="#id6">Eclipse</a><a class="headerlink" href="#eclipse" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>プロジェクトの「Properties」-「Java Compiler」-「Annotation Processing」の項目でオプションを登録します。</p>
+</div>
+<div class="section" id="javac">
+<h2><a class="toc-backref" href="#id7">javac</a><a class="headerlink" href="#javac" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>-Aオプションにより登録します。
+詳細はjavacのドキュメントを参照してください。</p>
+</div>
+<div class="section" id="gradle">
+<h2><a class="toc-backref" href="#id8">Gradle</a><a class="headerlink" href="#gradle" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><code class="docutils literal"><span class="pre">compileJava.options.compilerArgs</span></code> に指定します。</p>
+<div class="highlight-groovy"><div class="highlight"><pre><span></span><span class="n">compileJava</span><span class="o">.</span><span class="na">options</span><span class="o">.</span><span class="na">compilerArgs</span> <span class="o">=</span> <span class="o">[</span><span class="s1">&#39;-Adoma.dao.subpackage=impl&#39;</span><span class="o">,</span> <span class="s1">&#39;-Adoma.dao.suffix=Impl&#39;</span><span class="o">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="build.html" class="btn btn-neutral float-right" title="ビルド" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="transaction.html" class="btn btn-neutral" title="トランザクション" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014, Toshihiro Nakamura.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

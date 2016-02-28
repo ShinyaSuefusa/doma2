@@ -1,0 +1,447 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ストアドプロシージャー &mdash; Doma 2.0 ドキュメント</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Doma 2.0 ドキュメント" href="../index.html"/>
+        <link rel="up" title="クエリ" href="index.html"/>
+        <link rel="next" title="ファクトリ" href="factory.html"/>
+        <link rel="prev" title="ストアドファンクション" href="function.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Doma
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting-started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../config.html">設定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic.html">基本型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../domain.html">ドメインクラス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../entity.html">エンティティクラス</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dao.html">Daoインタフェース</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">クエリ</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="select.html">検索</a></li>
+<li class="toctree-l2"><a class="reference internal" href="insert.html">挿入</a></li>
+<li class="toctree-l2"><a class="reference internal" href="update.html">更新</a></li>
+<li class="toctree-l2"><a class="reference internal" href="delete.html">削除</a></li>
+<li class="toctree-l2"><a class="reference internal" href="batch-insert.html">バッチ挿入</a></li>
+<li class="toctree-l2"><a class="reference internal" href="batch-update.html">バッチ更新</a></li>
+<li class="toctree-l2"><a class="reference internal" href="batch-delete.html">バッチ削除</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function.html">ストアドファンクション</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">ストアドプロシージャー</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id3">戻り値</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">プロシージャー名</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">パラメータ</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#in">INパラメータ</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#inout">INOUTパラメータ</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#out">OUTパラメータ</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id6">カーソルのOUTパラメータもしくは結果セット</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">マップのキーのネーミング規約</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sql">SQL のログ出力形式</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="factory.html">ファクトリ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="script.html">スクリプト</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../query-builder/index.html">クエリビルダ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sql.html">SQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../expression.html">式言語</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../transaction.html">トランザクション</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../annotation-processing.html">注釈処理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../build.html">ビルド</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../development.html">Doma の開発</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../integration-test.html">統合テスト</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../release-notes.html">リリースノート</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Doma 2 における主要な変更点</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Doma</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="index.html">クエリ</a> &raquo;</li>
+      
+    <li>ストアドプロシージャー</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/query/procedure.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1><a class="toc-backref" href="#id8">ストアドプロシージャー</a><a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="contents topic" id="id2">
+<p class="topic-title first">目次</p>
+<ul class="simple">
+<li><a class="reference internal" href="#id1" id="id8">ストアドプロシージャー</a><ul>
+<li><a class="reference internal" href="#id3" id="id9">戻り値</a></li>
+<li><a class="reference internal" href="#id4" id="id10">プロシージャー名</a></li>
+<li><a class="reference internal" href="#id5" id="id11">パラメータ</a><ul>
+<li><a class="reference internal" href="#in" id="id12">INパラメータ</a></li>
+<li><a class="reference internal" href="#inout" id="id13">INOUTパラメータ</a></li>
+<li><a class="reference internal" href="#out" id="id14">OUTパラメータ</a></li>
+<li><a class="reference internal" href="#id6" id="id15">カーソルのOUTパラメータもしくは結果セット</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id7" id="id16">マップのキーのネーミング規約</a></li>
+<li><a class="reference internal" href="#sql" id="id17">SQL のログ出力形式</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<p>ストアドプロシージャーを呼び出すには、 <code class="docutils literal"><span class="pre">&#64;Procedure</span></code> をDaoのメソッドに注釈します。</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="nd">@Config</span><span class="o">(</span><span class="n">config</span> <span class="o">=</span> <span class="n">AppConfig</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">interface</span> <span class="nc">EmployeeDao</span> <span class="o">{</span>
+    <span class="nd">@Procedure</span>
+    <span class="kt">void</span> <span class="nf">execute</span><span class="o">(</span><span class="nd">@In</span> <span class="n">Integer</span> <span class="n">id</span><span class="o">,</span> <span class="nd">@InOut</span> <span class="n">Reference</span><span class="o">&lt;</span><span class="n">BigDecimal</span><span class="o">&gt;</span> <span class="n">salary</span><span class="o">);</span>
+    <span class="o">...</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>パラメータには、パラメータの種別を示す <code class="docutils literal"><span class="pre">&#64;In</span></code> 、 <code class="docutils literal"><span class="pre">&#64;InOut</span></code> 、 <code class="docutils literal"><span class="pre">&#64;Out</span></code> 、
+<code class="docutils literal"><span class="pre">&#64;ResultSet</span></code> のいずれかのアノテーションが必須です。
+パラメータは複数指定できます。</p>
+<div class="section" id="id3">
+<h2><a class="toc-backref" href="#id9">戻り値</a><a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>戻り値は <code class="docutils literal"><span class="pre">void</span></code> でなければいけません。</p>
+</div>
+<div class="section" id="id4">
+<h2><a class="toc-backref" href="#id10">プロシージャー名</a><a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>デフォルトではメソッド名がプロシージャー名になります。
+<code class="docutils literal"><span class="pre">&#64;Procedure</span></code> の <code class="docutils literal"><span class="pre">name</span></code> 要素に値を指定した場合は、その値がプロシージャー名になります。</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="nd">@Procedure</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;calculateSalary&quot;</span><span class="o">)</span>
+<span class="kt">void</span> <span class="nf">execute</span><span class="o">(</span><span class="nd">@In</span> <span class="n">Integer</span> <span class="n">id</span><span class="o">,</span> <span class="nd">@InOut</span> <span class="n">Reference</span><span class="o">&lt;</span><span class="n">BigDecimal</span><span class="o">&gt;</span> <span class="n">salary</span><span class="o">);</span>
+</pre></div>
+</div>
+<p><code class="docutils literal"><span class="pre">&#64;Procedure</span></code> の <code class="docutils literal"><span class="pre">catalog</span></code> 要素や <code class="docutils literal"><span class="pre">schema</span></code> 要素にカタログ名やスキーマ名を指定できます。
+このときプロシージャーの名前は <code class="docutils literal"><span class="pre">catalog</span></code> 要素、 <code class="docutils literal"><span class="pre">schema</span></code> 要素、
+<code class="docutils literal"><span class="pre">name</span></code> 要素（指定されていなければメソッド名）をピリオドで連結したものになります。</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="nd">@Procedure</span><span class="o">(</span><span class="n">catlog</span> <span class="o">=</span> <span class="s">&quot;CATALOG&quot;</span><span class="o">,</span> <span class="n">schema</span> <span class="o">=</span><span class="s">&quot;SCHEMA&quot;</span><span class="o">,</span> <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;calculateSalary&quot;</span><span class="o">)</span>
+<span class="kt">void</span> <span class="nf">execute</span><span class="o">(</span><span class="nd">@In</span> <span class="n">Integer</span> <span class="n">id</span><span class="o">,</span> <span class="nd">@InOut</span> <span class="n">Reference</span><span class="o">&lt;</span><span class="n">BigDecimal</span><span class="o">&gt;</span> <span class="n">salary</span><span class="o">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id5">
+<h2><a class="toc-backref" href="#id11">パラメータ</a><a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>ストアドプロシージャーのパラメータとDaoメソッドのパラメータの並び順は合わせなければいけません。</p>
+<div class="section" id="in">
+<h3><a class="toc-backref" href="#id12">INパラメータ</a><a class="headerlink" href="#in" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>INパラメータは、 <code class="docutils literal"><span class="pre">&#64;In</span></code> をメソッドのパラメータに注釈して示します。
+指定可能なパラメータの型は以下の通りです。</p>
+<ul class="simple">
+<li><a class="reference internal" href="../basic.html"><em>基本型</em></a></li>
+<li><a class="reference internal" href="../domain.html"><em>ドメインクラス</em></a></li>
+<li><a class="reference internal" href="../basic.html"><em>基本型</em></a> または <a class="reference internal" href="../domain.html"><em>ドメインクラス</em></a> を要素とするjava.util.Optional</li>
+<li>java.util.OptionalInt</li>
+<li>java.util.OptionalLong</li>
+<li>java.util.OptionalDouble</li>
+</ul>
+<p>パラメータの型が基本型もしくはドメインクラスの場合、引数を <code class="docutils literal"><span class="pre">null</span></code> にできます。
+それ以外の型の場合、引数は <code class="docutils literal"><span class="pre">null</span></code> であってはいけません。</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="nd">@Procedure</span>
+<span class="kt">void</span> <span class="nf">execute</span><span class="o">(</span><span class="nd">@In</span> <span class="n">Integer</span> <span class="n">id</span><span class="o">);</span>
+</pre></div>
+</div>
+<p>次のように使用します。</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="n">EmployeeDao</span> <span class="n">dao</span> <span class="o">=</span> <span class="k">new</span> <span class="n">EmployeeDaoImpl</span><span class="o">();</span>
+<span class="n">dao</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="inout">
+<h3><a class="toc-backref" href="#id13">INOUTパラメータ</a><a class="headerlink" href="#inout" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>INOUTパラメータは、 <code class="docutils literal"><span class="pre">&#64;InOut</span></code> をメソッドのパラメータに注釈して示します。
+注釈されるパラメータの型は <code class="docutils literal"><span class="pre">org.seasar.doma.jdbc.Reference</span></code> でなければいけません。
+<code class="docutils literal"><span class="pre">Reference</span></code> の型パラメータに指定できる型は以下の通りです。</p>
+<ul class="simple">
+<li><a class="reference internal" href="../basic.html"><em>基本型</em></a></li>
+<li><a class="reference internal" href="../domain.html"><em>ドメインクラス</em></a></li>
+<li><a class="reference internal" href="../basic.html"><em>基本型</em></a> または <a class="reference internal" href="../domain.html"><em>ドメインクラス</em></a> を要素とするjava.util.Optional</li>
+<li>java.util.OptionalInt</li>
+<li>java.util.OptionalLong</li>
+<li>java.util.OptionalDouble</li>
+</ul>
+<p>引数は <code class="docutils literal"><span class="pre">null</span></code> であってはいけません。</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="nd">@Procedure</span>
+<span class="kt">void</span> <span class="nf">execute</span><span class="o">(</span><span class="nd">@InOut</span> <span class="n">Reference</span><span class="o">&lt;</span><span class="n">BigDecimal</span><span class="o">&gt;</span> <span class="n">salary</span><span class="o">);</span>
+</pre></div>
+</div>
+<p>次のように使用します。</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="n">EmployeeDao</span> <span class="n">dao</span> <span class="o">=</span> <span class="k">new</span> <span class="n">EmployeeDaoImpl</span><span class="o">();</span>
+<span class="n">BigDecimal</span> <span class="n">in</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BigDecimal</span><span class="o">(</span><span class="mi">100</span><span class="o">);</span>
+<span class="n">Reference</span><span class="o">&lt;</span><span class="n">BigDecimal</span><span class="o">&gt;</span> <span class="n">ref</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Reference</span><span class="o">&lt;</span><span class="n">BigDecimal</span><span class="o">&gt;(</span><span class="n">in</span><span class="o">);</span>
+<span class="n">dao</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span><span class="n">ref</span><span class="o">);</span>
+<span class="n">BigDecimal</span> <span class="n">out</span> <span class="o">=</span> <span class="n">ref</span><span class="o">.</span><span class="na">get</span><span class="o">();</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="out">
+<h3><a class="toc-backref" href="#id14">OUTパラメータ</a><a class="headerlink" href="#out" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>OUTパラメータは、 <code class="docutils literal"><span class="pre">&#64;Out</span></code> をメソッドのパラメータに注釈して示します。
+注釈されるパラメータの型は <code class="docutils literal"><span class="pre">org.seasar.doma.jdbc.Reference</span></code> でなければいけません。
+<code class="docutils literal"><span class="pre">Reference</span></code> の型パラメータに指定できる型は以下の通りです。</p>
+<ul class="simple">
+<li><a class="reference internal" href="../basic.html"><em>基本型</em></a></li>
+<li><a class="reference internal" href="../domain.html"><em>ドメインクラス</em></a></li>
+<li><a class="reference internal" href="../basic.html"><em>基本型</em></a> または <a class="reference internal" href="../domain.html"><em>ドメインクラス</em></a> を要素とするjava.util.Optional</li>
+<li>java.util.OptionalInt</li>
+<li>java.util.OptionalLong</li>
+<li>java.util.OptionalDouble</li>
+</ul>
+<p>引数は <code class="docutils literal"><span class="pre">null</span></code> であってはいけません。</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="nd">@Procedure</span>
+<span class="kt">void</span> <span class="nf">execute</span><span class="o">(</span><span class="nd">@Out</span> <span class="n">Reference</span><span class="o">&lt;</span><span class="n">BigDecimal</span><span class="o">&gt;</span> <span class="n">salary</span><span class="o">);</span>
+</pre></div>
+</div>
+<p>次のように使用します。</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="n">EmployeeDao</span> <span class="n">dao</span> <span class="o">=</span> <span class="k">new</span> <span class="n">EmployeeDaoImpl</span><span class="o">();</span>
+<span class="n">Reference</span><span class="o">&lt;</span><span class="n">BigDecimal</span><span class="o">&gt;</span> <span class="n">ref</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Reference</span><span class="o">&lt;</span><span class="n">BigDecimal</span><span class="o">&gt;();</span>
+<span class="n">dao</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span><span class="n">ref</span><span class="o">);</span>
+<span class="n">BigDecimal</span> <span class="n">out</span> <span class="o">=</span> <span class="n">ref</span><span class="o">.</span><span class="na">get</span><span class="o">();</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id6">
+<h3><a class="toc-backref" href="#id15">カーソルのOUTパラメータもしくは結果セット</a><a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>カーソルのOUTパラメータ、もしくはストアドプロシージャーが返す結果セットは、
+<code class="docutils literal"><span class="pre">&#64;ResultSet</span></code> をメソッドのパラメータに注釈して示します。
+注釈されるパラメータの型は、以下の型を要素とする <code class="docutils literal"><span class="pre">java.util.List</span></code> でなければいけません。</p>
+<ul class="simple">
+<li><a class="reference internal" href="../basic.html"><em>基本型</em></a></li>
+<li><a class="reference internal" href="../domain.html"><em>ドメインクラス</em></a></li>
+<li><a class="reference internal" href="../entity.html"><em>エンティティクラス</em></a></li>
+<li>java.util.Map&lt;String, Object&gt;</li>
+<li><a class="reference internal" href="../basic.html"><em>基本型</em></a> または <a class="reference internal" href="../domain.html"><em>ドメインクラス</em></a> を要素とするjava.util.Optional</li>
+<li>java.util.OptionalInt</li>
+<li>java.util.OptionalLong</li>
+<li>java.util.OptionalDouble</li>
+</ul>
+<p>引数は <code class="docutils literal"><span class="pre">null</span></code> であってはいけません。</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="nd">@Procedure</span>
+<span class="kt">void</span> <span class="nf">execute</span><span class="o">(</span><span class="nd">@ResultSet</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Employee</span><span class="o">&gt;</span> <span class="n">employees</span><span class="o">);</span>
+</pre></div>
+</div>
+<p>次のように使用します。</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="n">EmployeeDao</span> <span class="n">dao</span> <span class="o">=</span> <span class="k">new</span> <span class="n">EmployeeDaoImpl</span><span class="o">();</span>
+<span class="n">List</span><span class="o">&lt;</span><span class="n">Employee</span><span class="o">&gt;</span> <span class="n">employees</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Employee</span><span class="o">&gt;();</span>
+<span class="n">dao</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span><span class="n">employees</span><span class="o">);</span>
+<span class="k">for</span> <span class="o">(</span><span class="n">Employee</span> <span class="n">e</span> <span class="o">:</span> <span class="n">employees</span><span class="o">)</span> <span class="o">{</span>
+    <span class="o">...</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p><code class="docutils literal"><span class="pre">&#64;ResultSet</span></code> が注釈された <code class="docutils literal"><span class="pre">java.util.List</span></code> の型パラメータが
+<a class="reference internal" href="../entity.html"><em>エンティティクラス</em></a> であり、かつ、エンティティのプロパティすべてに対して
+漏れなく結果セットのカラムをマッピングすることを保証したい場合は、
+<code class="docutils literal"><span class="pre">&#64;ResultSet</span></code> の <code class="docutils literal"><span class="pre">ensureResultMapping</span></code> 要素に <code class="docutils literal"><span class="pre">true</span></code> を指定します。</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="nd">@Procedure</span>
+<span class="kt">void</span> <span class="nf">execute</span><span class="o">(</span><span class="nd">@ResultSet</span><span class="o">(</span><span class="n">ensureResultMapping</span> <span class="o">=</span> <span class="kc">true</span><span class="o">)</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Employee</span><span class="o">&gt;</span> <span class="n">employee</span><span class="o">);</span>
+</pre></div>
+</div>
+<p>結果セットのカラムにマッピングされないプロパティが存在する場合
+<code class="docutils literal"><span class="pre">ResultMappingException</span></code> がスローされます。</p>
+</div>
+</div>
+<div class="section" id="id7">
+<h2><a class="toc-backref" href="#id16">マップのキーのネーミング規約</a><a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>結果セットを <code class="docutils literal"><span class="pre">java.util.Map&lt;String,</span> <span class="pre">Object&gt;</span></code> にマッピングする場合、
+<code class="docutils literal"><span class="pre">&#64;Procedure</span></code> の <code class="docutils literal"><span class="pre">mapKeyNaming</span></code> 要素にマップのキーのネーミング規約を指定できます。</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="nd">@Procedure</span><span class="o">(</span><span class="n">mapKeyNaming</span> <span class="o">=</span> <span class="n">MapKeyNamingType</span><span class="o">.</span><span class="na">CAMEL_CASE</span><span class="o">)</span>
+<span class="kt">void</span> <span class="nf">execute</span><span class="o">(</span><span class="nd">@ResultSet</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Object</span><span class="o">&gt;&gt;</span> <span class="n">employees</span><span class="o">);</span>
+</pre></div>
+</div>
+<p><code class="docutils literal"><span class="pre">MapKeyNamingType.CAMEL_CASE</span></code> は、カラム名をキャメルケースに変換することを示します。
+そのほかに、カラム名をを大文字や小文字に変換する規約があります。</p>
+<p>最終的な変換結果は、ここに指定した値と <a class="reference internal" href="../config.html"><em>設定</em></a> に指定された
+<code class="docutils literal"><span class="pre">MapKeyNaming</span></code> の実装により決まります。</p>
+</div>
+<div class="section" id="sql">
+<h2><a class="toc-backref" href="#id17">SQL のログ出力形式</a><a class="headerlink" href="#sql" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><code class="docutils literal"><span class="pre">&#64;Procedure</span></code> の <code class="docutils literal"><span class="pre">sqlLog</span></code> 要素に SQL のログ出力形式を指定できます。</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="nd">@Procedure</span><span class="o">(</span><span class="n">sqlLog</span> <span class="o">=</span> <span class="n">SqlLogType</span><span class="o">.</span><span class="na">RAW</span><span class="o">)</span>
+<span class="kt">void</span> <span class="nf">execute</span><span class="o">(</span><span class="nd">@In</span> <span class="n">Integer</span> <span class="n">id</span><span class="o">);</span>
+</pre></div>
+</div>
+<p><code class="docutils literal"><span class="pre">SqlLogType.RAW</span></code> はバインドパラメータ（?）付きの SQL をログ出力することを表します。</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="factory.html" class="btn btn-neutral float-right" title="ファクトリ" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="function.html" class="btn btn-neutral" title="ストアドファンクション" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014, Toshihiro Nakamura.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
